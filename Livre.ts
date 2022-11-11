@@ -1,4 +1,4 @@
-export class Livre {
+export class Livre{
   private auteur: string;
   private theme: string;
   private avis: number;
@@ -13,12 +13,14 @@ export class Livre {
     Theme: string,
     Avis: number,
     ISBN: string,
-    ImageURI: string
+    ImageURI: string,
+    titre:string
   ) {
     this.auteur = Auteur;
     this.theme = Theme;
     this.avis = Avis;
     this.isbn = ISBN;
+    this.titre=titre;
     this.imageURI = ImageURI;
   }
 

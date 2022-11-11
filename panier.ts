@@ -4,7 +4,7 @@ export class Panier{
     total:number;
     nombreArticle:number;
 
-    listeArticle:Article[];
+    listeArticle:Article[]|undefined;
     
 
 
@@ -12,8 +12,7 @@ export class Panier{
         this.commandePassee=false;
         this.total=0;
         this.nombreArticle=0;
-
-        this.listeArticle=null;
+        this.listeArticle=[];
     }
 
 
@@ -48,7 +47,5 @@ export class Panier{
     public getnombreArticle():number{
         return this.nombreArticle;
     }
-
-
-
-}
+    
+    }
