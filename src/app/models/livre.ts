@@ -5,7 +5,7 @@ export class Livre{
   private isbn: string;
   private titre: string;
   private imageURI: string;
- 
+
 
 
   constructor(

@@ -1,11 +1,11 @@
-import {Article} from './Article';
+import {Article} from './article';
 export class Panier{
     commandePassee:boolean;
     total:number;
     nombreArticle:number;
 
-    listeArticle:Article[]|undefined;
-    
+    listeArticle:Article[]=[];
+
 
 
     constructor(){
@@ -47,5 +47,5 @@ export class Panier{
     public getnombreArticle():number{
         return this.nombreArticle;
     }
-    
+
     }

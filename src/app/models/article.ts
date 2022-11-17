@@ -1,4 +1,4 @@
-import { Livre } from "./Livre";
+import { Livre } from "./livre";
 export class Article extends Livre {
 
   private prix:number;
