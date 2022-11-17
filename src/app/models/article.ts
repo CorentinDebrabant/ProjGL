@@ -11,18 +11,17 @@ export class Article extends Livre {
       this.prix = prix;
   }
 
-constructor(
-  Auteur: string,
-  Theme: string,
-  Avis: number,
-  ISBN: string,
-  ImageURI: string,
-  titre:string,
-  prix:number
-) {
+  constructor(
+    Auteur: string,
+    Theme: string,
+    Avis: number,
+    ISBN: string,
+    ImageURI: string,
+    titre:string,
+    prix:number)
+  {
   super(Auteur, Theme, Avis, ISBN, ImageURI,titre);
   this.prix=prix;
-}
-
+  }
 
 }

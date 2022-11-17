@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Livre } from "../models/livre";
+import { Article } from "../models/article";
 import { BDService } from "../models/bd.service";
 
 @Component({
@@ -9,18 +9,18 @@ import { BDService } from "../models/bd.service";
 })
 export class CatalogueComponent implements OnInit {
 
+  public listeArticle : Article[] = [];
+
+  getCatalogue()
+  {
+    this.bdServ.getCatalogue().subscribe(catalogue => this.listeArticle = catalogue);
+  }
+
   constructor(private bdServ : BDService) {
   }
 
-  public AjoutLivre(l: Livre) {
-    this.bdServ.pushLivre(l);
-  }
-
-  public SupprimeLivre(l: Livre) {
-    this.bdServ.deleteLivre(l);
-  }
-
   ngOnInit(): void {
+    this.getCatalogue();
   }
 
 }
