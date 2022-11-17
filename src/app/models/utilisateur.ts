@@ -19,6 +19,11 @@ export class Utilisateur {
     this.identifiant = identifiant;
   }
 
+  public getMdp()
+  {
+    return this.mdp;
+  }
+
   public getEmail(): string {
     return this.email;
   }
