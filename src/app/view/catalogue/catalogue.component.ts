@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from "../models/article";
-import { BDService } from "../models/bd.service";
+import { Livre } from "../../models/livre";
+import { BDService } from "../../models/bd.service";
 
 @Component({
   selector: 'app-catalogue',
@@ -9,11 +9,11 @@ import { BDService } from "../models/bd.service";
 })
 export class CatalogueComponent implements OnInit {
 
-  public listeArticle : Article[] = [];
+  public listeLivre : Livre[] = [];
 
   getCatalogue()
   {
-    this.bdServ.getCatalogue().subscribe(catalogue => this.listeArticle = catalogue);
+    this.bdServ.getCatalogue().subscribe(catalogue => this.listeLivre = catalogue);
   }
 
   constructor(private bdServ : BDService) {

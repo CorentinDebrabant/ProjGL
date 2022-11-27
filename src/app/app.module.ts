@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CatalogueComponent } from './catalogue/catalogue.component';
+import { CatalogueComponent } from './view/catalogue/catalogue.component';
 import { ConnexionComponent } from './view/connexion/connexion.component';
 
 @NgModule({

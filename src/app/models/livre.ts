@@ -5,6 +5,7 @@ export class Livre{
   private isbn: string;
   private titre: string;
   private imageURI: string;
+  private prix: number;
 
 
 
@@ -14,7 +15,8 @@ export class Livre{
     Avis: number,
     ISBN: string,
     ImageURI: string,
-    titre:string
+    titre:string,
+    prix:number
   ) {
     this.auteur = Auteur;
     this.theme = Theme;
@@ -22,6 +24,7 @@ export class Livre{
     this.isbn = ISBN;
     this.titre=titre;
     this.imageURI = ImageURI;
+    this.prix=prix;
   }
 
 
@@ -70,6 +73,13 @@ export class Livre{
   }
   public setimageURI(url: string) {
     this.imageURI = url;
+  }
+
+  public getPrix(): number {
+    return this.prix;
+  }
+  public setPrix(prix: number) {
+    this.prix = prix;
   }
 
 }

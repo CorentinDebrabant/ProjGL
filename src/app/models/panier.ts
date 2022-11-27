@@ -1,10 +1,10 @@
-import {Article} from './article';
+import {Livre} from './livre';
 export class Panier{
     commandePassee:boolean;
     total:number;
     nombreArticle:number;
 
-    listeArticle:Article[]=[];
+    listeArticle:Livre[]=[];
 
 
 
@@ -25,13 +25,13 @@ export class Panier{
     }
 
 
-    public ajouteArticle(article:Article)
+    public ajouteArticle(article:Livre)
     {
         this.listeArticle.push(article);
         this.nombreArticle++;
     }
 
-    public supprimeArticle(article:Article)
+    public supprimeArticle(article:Livre)
     {
         const index: number = this.listeArticle.indexOf(article);
         if (index !== -1) {
