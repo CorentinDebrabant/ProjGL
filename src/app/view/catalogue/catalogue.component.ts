@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Livre } from "../../models/livre";
 import { BDService } from "../../models/bd.service";
+import { outputAst } from '@angular/compiler';
 
 @Component({
   selector: 'app-catalogue',
@@ -19,8 +20,36 @@ export class CatalogueComponent implements OnInit {
   constructor(private bdServ : BDService) {
   }
 
+
+
+  debug(index:number){
+    console.log(this.listeLivre[index]);
+  }
+
   ngOnInit(): void {
+
     this.getCatalogue();
+
+
+
+    //Add more books
+    this.listeLivre.push()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 
 }
