@@ -1,0 +1,99 @@
+input{
+  color:#cd6f0d;
+  background-color: #444c66;
+  border: 0px;
+  border-right: 3px solid #ae4876;
+  width: 20%;
+  height: 16px;
+  margin-bottom: 10px;
+}
+label{
+  color:#cd6f0d;
+  background-color: #444c66;
+  border: 0px;
+  border-left: 3px solid #ae4876;
+  min-width: 8%;
+  width: auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+button{
+  color:#cd6f0d;
+  background-color: #715c77;
+  border-color: #ae4876;
+  border: 0px;
+  border-right: 3px solid #ae4876;
+  border-left: 3px solid #ae4876;
+  width: 20%;
+}
+#recherche{
+  background-color:#262432;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+}
+form span{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+hr{
+  border-color: #ae4876;
+  margin-bottom: 15px;
+  width: 50%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 2em;
+  color: #FFF;
+  background: transparent;
+  background-image: linear-gradient(to bottom, #444c66, #ae4876, #715c77);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 25%;
+  border: 0px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.25em;
+  width: 1.25em;                                            /* largeur du bord */
+  border: 1px solid #ae4876;
+  border-radius: 50%;
+  box-shadow: 0 0 .5em #ae4876 inset;
+  background: linear-gradient(#444c66, #262432) content-box;
+}
+
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 1.25em;
+  width: 1.25em;                                            /* largeur du bord */
+  border: 1px solid #ae4876;
+  border-radius: 50%;
+  box-shadow: 0 0 .5em #ae4876 inset;
+  background: linear-gradient(#444c66, #262432) content-box;
+}
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 1.25em;
+  width: 1.25em;                                            /* largeur du bord */
+  border: 1px solid #ae4876;
+  border-radius: 50%;
+  box-shadow: 0 0 .5em #ae4876 inset;
+  background: linear-gradient(#444c66, #262432) content-box;
+}
+
+.label-range{
+  border-right: 3px solid #ae4876;
+}

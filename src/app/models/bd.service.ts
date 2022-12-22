@@ -17,7 +17,7 @@ export class BDService {
 
   constructor() {
     this.pushLivre(new Livre("Corentin","Surnaturel",3.5,"00000","path.jpg","Le loup blanc",10.2));
-    this.pushLivre(new Livre("Ismael", "Fantastique", 5.5, "0001", "imagepathIsmael.jpg","Le renard de combat",15.3));
+    this.pushLivre(new Livre("Ismael", "Fantastique", 4.9, "0001", "imagepathIsmael.jpg","Le renard de combat",15.3));
     this.pushLivre(new Livre("J.R.R Tolkien","Fantasy",0,"0123456789","...","Seigneur des anneau",25.99));
     this.mockUser.push(new Utilisateur("Plop","Plop@Plop",0,"Plop"));
     this.mockUser.push(new Utilisateur("Gens","Gens@Bon",0,"BonAnnee"));
@@ -106,7 +106,7 @@ export class BDService {
     let livres:Livre[]=[];
     for(let livre of this.mockLivre)
     {
-      if(livre.getTitre().indexOf(search)>=0)
+      if(livre.getTitre().toLowerCase().indexOf(search.toLowerCase())>=0)
       {
         livres.push(livre);
       }
@@ -120,53 +120,58 @@ export class BDService {
     for(let livre of this.mockLivre)
     {
       let get:boolean = true;
-      if(titre!=undefined)
+      if(isbn!=undefined)
       {
-        if(livre.getTitre().indexOf(titre)==-1)
+        if(livre.getIsbn().toLowerCase().localeCompare(isbn.toLowerCase())!=0)
         {
           get=false;
         }
       }
-      if(get && auteur!=undefined)
+      else
       {
-        if(livre.getAuteur().indexOf(auteur)==-1)
+        if(titre!=undefined)
         {
-          get=false;
+
+          if(livre.getTitre().toLowerCase().indexOf(titre.toLowerCase())==-1)
+          {
+            get=false;
+          }
         }
-      }
-      if(get && theme!=undefined)
-      {
-        if(livre.getTheme().localeCompare(theme)!=0)
+        if(get && auteur!=undefined)
         {
-          get=false;
+          if(livre.getAuteur().toLowerCase().indexOf(auteur.toLowerCase())==-1)
+          {
+            get=false;
+          }
         }
-      }
-      if(get && isbn!=undefined)
-      {
-        if(livre.getIsbn().localeCompare(isbn)!=0)
+        if(get && theme!=undefined)
         {
-          get=false;
+          if(livre.getTheme().toLowerCase().localeCompare(theme.toLowerCase())!=0)
+          {
+            get=false;
+          }
         }
-      }
-      if(get && avis!=undefined)
-      {
-        if(livre.getAvis()<avis)
+
+        if(get && avis!=undefined)
         {
-          get=false;
+          if(livre.getAvis()<avis)
+          {
+            get=false;
+          }
         }
-      }
-      if(get && prixmin!=undefined)
-      {
-        if(livre.getPrix()<prixmin)
+        if(get && prixmin!=undefined)
         {
-          get=false;
+          if(livre.getPrix()<prixmin)
+          {
+            get=false;
+          }
         }
-      }
-      if(get && prixmax!=undefined)
-      {
-        if(livre.getPrix()>prixmax)
+        if(get && prixmax!=undefined)
         {
-          get=false;
+          if(livre.getPrix()>prixmax)
+          {
+            get=false;
+          }
         }
       }
       if(get)
@@ -175,6 +180,19 @@ export class BDService {
       }
     }
     return of(livres);
+  }
+
+  public getPrixMaxCatalogue() : Observable<number>
+  {
+    let val : number = 0;
+    for(let livre of this.mockLivre)
+    {
+      if(livre.getPrix()>val)
+      {
+        val=livre.getPrix();
+      }
+    }
+    return of(val);
   }
 
 }

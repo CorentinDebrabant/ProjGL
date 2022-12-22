@@ -1,0 +1,22 @@
+<div id="recherche">
+  <div *ngIf="listeLivre.length==0;then recherche;else catalogue"></div>
+  <ng-template #recherche>
+    <form>
+      <span><label for="isbn">Isbn :</label><input type="text" id="isbn" #isbn></span>
+      <button type="button" (click)="getResultat(undefined, undefined, undefined, isbn.value, undefined, undefined)">Rechercher</button>
+    </form>
+    <hr>
+    <form>
+      <span><label for="titre">Titre :</label><input type="text" id="titre" #titre></span>
+      <span><label for="auteur">Auteur :</label><input type="text" id="auteur" #auteur></span>
+      <span><label for="theme">Theme :</label><input type="text" id="theme" #theme></span>
+      <span><label for="note" class="label-range">Note (supérieur à {{valNote}}) :</label><input type="range" min="0" max="4.8" step="0.2" id="note" value="0" (input)="changeNote(note.value)" #note></span>
+      <span><label for="prixmax" class="label-range">Prix (inferieur à {{valPrix}}) :</label><input type="range" min="5" max="{{prixmax.toFixed(0)}}" step="0.1" id="prixmax" value="{{prixmax.toFixed(0)}}" (input)="changePrix(prix.value)" #prix></span>
+      <button type="button" (click)="getResultat(titre.value, auteur.value, theme.value, undefined, note.value, prix.value)">Rechercher</button>
+    </form>
+  </ng-template>
+  <ng-template #catalogue>
+    <p *ngFor="let item of listeLivre">{{item.getTitre()}}</p>
+    <button type="button" (click)="clear()">Retour à la page de recherche</button>
+  </ng-template>
+</div>

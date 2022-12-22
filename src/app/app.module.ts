@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatalogueComponent } from './view/catalogue/catalogue.component';
 import { ConnexionComponent } from './view/connexion/connexion.component';
+import { BarreRechercheComponent } from './view/barre-recherche/barre-recherche.component';
+import { PageRechercheComponent } from './view/page-recherche/page-recherche.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CatalogueComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    BarreRechercheComponent,
+    PageRechercheComponent
   ],
   imports: [
     BrowserModule,

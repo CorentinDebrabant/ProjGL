@@ -1,0 +1,13 @@
+input{
+  color:#cd6f0d;
+  background-color: #444c66;
+  border: 0px;
+  border-left: 3px solid #ae4876;
+}
+button{
+  color:#cd6f0d;
+  background-color: #715c77;
+  border-color: #ae4876;
+  border: 0px;
+  border-right: 3px solid #ae4876;
+}
