@@ -16,9 +16,10 @@ export class BDService {
   mockCommande : Map<Utilisateur, Panier[]>;
 
   constructor() {
-    this.pushLivre(new Livre("Corentin","Surnaturel",3.5,"00000","path.jpg","Le loup blanc",10.2));
-    this.pushLivre(new Livre("Ismael", "Fantastique", 4.9, "0001", "imagepathIsmael.jpg","Le renard de combat",15.3));
-    this.pushLivre(new Livre("J.R.R Tolkien","Fantasy",0,"0123456789","...","Seigneur des anneau",25.99));
+    this.pushLivre(new Livre("Corentin","Surnaturel",3.5,"00000","../assets/loup.jpg","Le loup blanc",10.2,"Le loup blanc, vivant seul dans la montagne, se prépare à..."));
+    this.pushLivre(new Livre("Ismael", "Fantastique", 5.5, "0001", "../assets/renard.jpg","Le renard de combat",15.3,"Dans une école de renards ninjas, une jeune pousse cherche à se démarquer des autres animaux "));
+    this.pushLivre(new Livre("J.R.R Tolkien","Fantasy",0,"0123456789","../assets/anneaux.jpg","Seigneur des anneau",25.99,"Cabane d'un hobbit..."));
+
     this.mockUser.push(new Utilisateur("Plop","Plop@Plop",0,"Plop"));
     this.mockUser.push(new Utilisateur("Gens","Gens@Bon",0,"BonAnnee"));
     this.mockUser.push(new Utilisateur("Arg","Arg@gmail.com",0,"Arg"));

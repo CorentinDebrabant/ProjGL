@@ -6,6 +6,7 @@ export class Livre{
   private titre: string;
   private imageURI: string;
   private prix: number;
+  private resume:string;
 
 
 
@@ -16,7 +17,8 @@ export class Livre{
     ISBN: string,
     ImageURI: string,
     titre:string,
-    prix:number
+    prix:number,
+    resume:string
   ) {
     this.auteur = Auteur;
     this.theme = Theme;
@@ -25,11 +27,16 @@ export class Livre{
     this.titre=titre;
     this.imageURI = ImageURI;
     this.prix=prix;
+    this.resume=resume;
   }
 
 
   public getAuteur(): string {
     return this.auteur;
+  }
+
+  public getResume():string{
+    return this.resume;
   }
 
   public setAuteur(auteur: string): void {
@@ -66,6 +73,10 @@ export class Livre{
 
   public setTitre(titre: string): void {
     this.titre = titre;
+  }
+
+  public setResume(resume: string): void{
+    this.resume=resume;
   }
 
   public getimageURI(): string {
