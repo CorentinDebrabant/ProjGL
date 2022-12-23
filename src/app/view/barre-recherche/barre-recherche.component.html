@@ -2,4 +2,3 @@
   <input placeholder="Rechercher par titre" type="text" #titre>
   <button type="button" (click)="getResultat(titre.value)">Rechercher</button>
 </form>
-<p *ngFor="let item of listeLivre">{{item.getTitre()}}</p>

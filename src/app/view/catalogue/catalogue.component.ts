@@ -30,26 +30,11 @@ export class CatalogueComponent implements OnInit {
 
     this.getCatalogue();
 
-
-
     //Add more books
-    this.listeLivre.push()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //this.listeLivre.push();
+  }
+  ngOnDestroy(): void{
+    this.bdServ.videListeActuelle();
   }
 
 }

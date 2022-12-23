@@ -7,6 +7,8 @@ import { CatalogueComponent } from './view/catalogue/catalogue.component';
 import { ConnexionComponent } from './view/connexion/connexion.component';
 import { BarreRechercheComponent } from './view/barre-recherche/barre-recherche.component';
 import { PageRechercheComponent } from './view/page-recherche/page-recherche.component';
+import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { PageRechercheComponent } from './view/page-recherche/page-recherche.com
     CatalogueComponent,
     ConnexionComponent,
     BarreRechercheComponent,
-    PageRechercheComponent
+    PageRechercheComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

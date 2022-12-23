@@ -10,10 +10,13 @@ import { InvokeFunctionExpr } from '@angular/compiler';
 })
 export class BDService {
   mockLivre: Livre[] = [];
+  listeActuelle : Livre[] = [];
   mockUser: Utilisateur[] = [];
   connectedUser: Utilisateur | undefined;
   panier : Panier;
   mockCommande : Map<Utilisateur, Panier[]>;
+  isCatalogueOpen : boolean = false;
+  savingListeActuel : boolean = false;
 
   constructor() {
     this.pushLivre(new Livre("Corentin","Surnaturel",3.5,"00000","../assets/loup.jpg","Le loup blanc",10.2,"Le loup blanc, vivant seul dans la montagne, se prépare à..."));
@@ -25,6 +28,23 @@ export class BDService {
     this.mockUser.push(new Utilisateur("Arg","Arg@gmail.com",0,"Arg"));
     this.panier = new Panier();
     this.mockCommande = new Map();
+  }
+
+  public setListeActuelle(liste : Livre[])
+  {
+    this.listeActuelle=liste;
+    if(this.isCatalogueOpen)
+    {
+      this.savingListeActuel=true;
+    }
+  }
+
+  public videListeActuelle()
+  {
+    if(!this.savingListeActuel)
+      this.listeActuelle = [];
+    this.isCatalogueOpen = false;
+    this.savingListeActuel = false;
   }
 
   public deleteLivre(l: Livre) {
@@ -82,6 +102,11 @@ export class BDService {
 
   public getCatalogue() : Observable<Livre[]>
   {
+    this.isCatalogueOpen = true;
+    if(this.listeActuelle.length!=0)
+    {
+      return of(this.listeActuelle);
+    }
     return of(this.mockLivre);
   }
 

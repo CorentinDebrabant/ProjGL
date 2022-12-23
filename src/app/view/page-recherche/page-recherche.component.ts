@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Livre} from '../../models/livre';
 import { BDService } from "../../models/bd.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-recherche',
@@ -44,9 +45,12 @@ export class PageRechercheComponent implements OnInit {
     let valNote : number = Number(note);
     let valPrix : number = Number(prixmax);
     this.bdServ.getLivreRecherche(titre,auteur,theme,isbn,valNote,undefined,valPrix).subscribe(resultat => this.listeLivre = resultat);
+    this.bdServ.setListeActuelle(this.listeLivre);
+    this.router.navigate(['/catalogue']);
+
   }
 
-  constructor(private bdServ : BDService) { }
+  constructor(private bdServ : BDService, private router : Router) { }
 
   ngOnInit(): void {
     this.bdServ.getPrixMaxCatalogue().subscribe(prix => this.prixmax=prix);

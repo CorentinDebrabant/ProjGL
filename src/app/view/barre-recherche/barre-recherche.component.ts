@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Livre} from '../../models/livre';
 import { BDService } from "../../models/bd.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-barre-recherche',
@@ -13,11 +14,13 @@ export class BarreRechercheComponent implements OnInit {
 
   getResultat(titre: string)
   {
-    console.log(titre);
     this.bdServ.getLivreByName(titre).subscribe(resultat => this.listeLivre = resultat);
+    console.log(this.listeLivre);
+   this.router.navigate(['/catalogue']);
+   this.bdServ.setListeActuelle(this.listeLivre);
   }
 
-  constructor(private bdServ : BDService) { }
+  constructor(private bdServ : BDService, private router : Router) { }
 
   ngOnInit(): void {
   }
