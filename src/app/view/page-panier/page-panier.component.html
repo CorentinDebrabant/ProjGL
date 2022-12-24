@@ -1,1 +1,19 @@
-<p>page-panier works!</p>
+<body>
+    <h1>Panier<span class="panier-nombre">({{panier.getnombreArticle()}})</span></h1>
+    <div class="panier-list">
+        <div class="livres" appSelection>
+            <a class="livre" (click)="recupLivre(livre)"
+                *ngFor="let livre of panier.listeArticle; let index = index"
+                href="#" appSelection >
+                <div class="livre-img">
+                    <img src={{livre.getimageURI()}} style="width:auto;height:300px;" />
+                </div>
+                <div class="livre-txt">
+                    <p>{{livre.getTitre()}}</p>
+                </div>
+            </a>
+        </div>
+        <button *ngIf="selectedLivre !== null" (click)="deleteLivre(selectedLivre)">Delete</button>
+        <button *ngIf="panier.getnombreArticle() >= 1" (click)="commandeLivres()">Purchase</button>
+    </div>
+</body>

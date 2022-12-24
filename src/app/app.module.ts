@@ -9,6 +9,7 @@ import { BarreRechercheComponent } from './view/barre-recherche/barre-recherche.
 import { PageRechercheComponent } from './view/page-recherche/page-recherche.component';
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
 
+import { PagePanierComponent } from './view/page-panier/page-panier.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PageNotFoundComponent } from './view/page-not-found/page-not-found.comp
     ConnexionComponent,
     BarreRechercheComponent,
     PageRechercheComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PagePanierComponent
   ],
   imports: [
     BrowserModule,
