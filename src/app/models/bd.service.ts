@@ -221,4 +221,12 @@ export class BDService {
     return of(val);
   }
 
+  public getCommandes() : Observable<Panier[]|undefined>
+  {
+    if(this.connectedUser!=undefined)
+      return of(this.mockCommande.get(this.connectedUser));
+    else
+      return of(undefined);
+  }
+
 }
