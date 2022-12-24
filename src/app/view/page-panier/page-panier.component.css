@@ -1,0 +1,102 @@
+body {
+    text-align: left;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: grid;
+    place-items: left;
+    background: #262432;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Oswald', sans-serif;
+  }
+
+h1{
+    color: #cd6f0d;
+    margin-left: 100px;
+    text-align: left;
+}
+
+.panier-list{
+    color: #ae4876;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.panier-nombre{
+    color: #ae4876;
+    margin-left: 20px;
+    width: 100%;
+}
+
+.livres {
+    /* Add styles to the livres container to control the layout of the cards. */
+    display: flex;
+    flex-wrap: wrap;
+
+    /* Add a margin to the livres container to create some space between the cards. */
+    margin: -10px;
+}
+
+.livre {
+    /* Other styles for the livre go here */
+
+    /* Set the position of the livre to relative, so that we can position the front and back of the livre absolutely within the livre container. */
+    position: relative;
+
+    /* Set the width and height of the livre to a fixed size. */
+    width: 200px;
+    height: 300px;
+
+    /* Add a margin to the livre to create some space between the cards. */
+    margin-left: 50px;
+}
+
+.livre-img, .livre-txt {
+    /* Set the position of the front and back of the livre to absolute, so that they are positioned within the livre container. */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* Set the width and height of the front and back of the livre to be the same as the livre container. */
+    width: 100%;
+    height: 100%;
+
+    /* Set the backface-visibility of the front and back of the livre to hidden, so that they are invisible when flipped. */
+    backface-visibility: hidden;
+}
+
+.livre-img {
+    /* Set the z-index of the front of the livre to be higher than the back of the livre, so that it appears on top. */
+    z-index: 2;
+}
+
+.livre-txt {
+    /* Set the z-index of the back of the livre to be lower than the front of the livre, so that it appears behind the front. */
+    z-index: 1;
+
+    /* Set the back of the livre to be hidden by default, so that only the front of the livre is visible. */
+    transform: rotateY(180deg);
+    /* Add styles to the back of the livre to control the layout of the text. */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    text-align: left;
+
+    color: #ae4876;
+}
+
+/* Add a transition to the transform property of the livre, so that the flip effect is smooth. */
+.livre-img, .livre-txt {
+    transition: transform 0.6s;
+}
+
+/* Add a hover state to the livre, which flips the livre to show the back when the mouse is over the livre. */
+.livre:hover .livre-img {
+    transform: rotateY(180deg);
+}
+
+.livre:hover .livre-txt {
+    transform: rotateY(0deg);
+}

@@ -27,6 +27,8 @@ export class BDService {
     this.mockUser.push(new Utilisateur("Gens","Gens@Bon",0,"BonAnnee"));
     this.mockUser.push(new Utilisateur("Arg","Arg@gmail.com",0,"Arg"));
     this.panier = new Panier();
+    this.panier.ajouteArticle(this.mockLivre[0]);
+    this.panier.ajouteArticle(this.mockLivre[2]);
     this.mockCommande = new Map();
   }
 
