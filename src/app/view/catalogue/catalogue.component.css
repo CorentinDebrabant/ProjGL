@@ -23,6 +23,7 @@ th{
   width: 300px;
   height: 300px;
   perspective: 1000px;
+
 }
 .aligne{
   text-align: center;
@@ -58,6 +59,7 @@ th{
   background-color: #373b3e;
   color: white;
   transform: rotateY(180deg);
+
 }
 
 .marque-ver {
@@ -68,12 +70,13 @@ th{
   border: 10px solid #715c77;
   overflow: hidden;
   box-shadow: 0 .25em .5em #CCC,inset 0 0 1em .25em #ae4876;
+
 }
 .msg:hover {
   position:relative;
   padding:0em;
   padding-top: 0em; /* meme que height du parent */
-  animation: defilement-ver 10s infinite linear;
+ animation: defilement-ver 32s linear ;
   cursor: pointer;
 }
 .msg {
@@ -81,15 +84,21 @@ th{
   line-height: 1.5em;
   width: 100%;
   height: 100%;
+  overflow: visible;
+  display: block;
 }
 @keyframes defilement-ver {
-  0% {
+  0%{
     transform: translate3d(0,0,0);
+
   }
+
   100% {
-    transform: translate3d(0,-100%,0);
+    transform: translate3d(0,-1400%,0);
+    -webkit-animation-fill-mode: forwards;
   }
 }
+
 
 
 
