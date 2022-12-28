@@ -19,7 +19,7 @@ export class BDService {
   savingListeActuel : boolean = false;
 
   constructor() {
-    this.pushLivre(new Livre("Corentin","Surnaturel",3.5,"00000","../assets/loup.jpg","Le loup blanc",10.2,"Le loup blanc, vivant seul dans la montagne, se prépare à..."));
+    this.pushLivre(new Livre("Corentin","Surnaturel",3.5,"00000","../assets/loup.jpg","Le loup blanc",10.2,"Cailloux tu branches quarante xv. Babil te rirez je on mille rendu. Militaire atteindra fabriques rit crepitent non cravaches. Regiments oh sacrifice annoncait un. Maison poemes glisse uns bourse troupe offrir lui. Dela crie feu mur pied hors nuit quel par. Nid trotte iii claire sortir ras ahuris pleine. Dites roche fille des cents eux gifle lunes nul. Capotes peu grosses par oui pinacle fureurs animaux. Par garnison rit reparler bravoure des cervelle ennemies campagne.    Je ma domes files il navre avons. Eux quand homme cet large savez seuls crise. Enveloppes clairieres ai la chantaient ce. Oh va crispes puisque mineurs fureurs station du. Camarades ca orientaux boulevard viendrait sortaient un. Levres jet est freres bucher revele eux hideur eclate ils. Je ange au au tout as bien. Un dormir galons as hideur. "));
     this.pushLivre(new Livre("Ismael", "Fantastique", 5.5, "0001", "../assets/renard.jpg","Le renard de combat",15.3,"Dans une école de renards ninjas, une jeune pousse cherche à se démarquer des autres animaux "));
     this.pushLivre(new Livre("J.R.R Tolkien","Fantasy",0,"0123456789","../assets/anneaux.jpg","Seigneur des anneau",25.99,"Cabane d'un hobbit..."));
 

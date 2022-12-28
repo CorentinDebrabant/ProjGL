@@ -1,0 +1,43 @@
+<span *ngIf="livres?.length != 0">
+
+
+
+<table>
+  <thead>
+      <tr>
+          <th colspan="10">{{livre?.getTitre()}}</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><img src="{{livre?.getimageURI()}}" alt="image du livre {{livre?.getTitre()}}" class="img-fluid" />
+            <p> {{livre?.getAuteur()}}</p>
+            <p> {{livre?.getTheme()}}</p>
+            <p> {{livre?.getAvis()}}</p>
+          </td>
+
+          <td class="description"> {{livre?.getResume()}}</td>
+      </tr>
+
+
+
+      <tr>
+        <h3> {{livre?.getPrix()}} €</h3>
+        <button *ngIf="livre" type="button" class="btn btn-primary" (click)="AjoutePanier(livre)">Ajouter au panier</button>
+
+        <td>
+          <p>Ce {{getRandomMot()}} livre édité par {{livre?.getAuteur()}} vous divertira pendant des heures</p>
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+</span>
+
+
+
+
+<span *ngIf="livres?.length == 0">
+ <p>Oula ! ce Livre n'est pas chez nous ! Nous t'invitons à te rediriger vers le catalogue pour y découvrir nos produits diposnibles</p>
+</span>
+

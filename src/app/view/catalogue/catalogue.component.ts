@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Livre } from "../../models/livre";
 import { BDService } from "../../models/bd.service";
 import { outputAst } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalogue',
@@ -17,13 +18,13 @@ export class CatalogueComponent implements OnInit {
     this.bdServ.getCatalogue().subscribe(catalogue => this.listeLivre = catalogue);
   }
 
-  constructor(private bdServ : BDService) {
+  constructor(private bdServ : BDService, private router: Router) {
   }
 
 
 
   debug(index:number){
-    console.log(this.listeLivre[index]);
+    this.router.navigate(['/detail',this.listeLivre[index].getIsbn()]);
   }
 
   ngOnInit(): void {
