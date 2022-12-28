@@ -5,7 +5,7 @@
     right: -100%;
     height: 100%;
     width: 100%;
-    background: #000;
+    background: #36363e;
     /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
     /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
    /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
@@ -15,6 +15,7 @@
     /*left: 0;*/
     right:0;
   }
+
   .menu-btn{
     position: absolute;
     z-index: 2;
@@ -51,8 +52,8 @@
   .menu-btn:after{
     transform: translateY(8px);
   }
-  
-  
+
+
   .close {
       z-index: 1;
       width: 100%;
@@ -60,7 +61,7 @@
       pointer-events: none;
       transition: background .6s;
   }
-  
+
   /* closing animation */
   #active:checked + .menu-btn span {
       transform: scaleX(0);
@@ -85,13 +86,14 @@
   .wrapper ul li{
     height: 10%;
     margin: 15px 0;
+
   }
   .wrapper ul li a{
     text-decoration: none;
     font-size: 30px;
     font-weight: 500;
     padding: 5px 30px;
-    color: #fff;
+    color: #cd6f0d;
     border-radius: 50px;
     position: absolute;
     line-height: 50px;
@@ -103,9 +105,9 @@
   .wrapper ul li a:after{
     position: absolute;
     content: "";
-   
-  
-  
+
+
+
      background: linear-gradient(#cd6f0d, #cf4e4e, #ae4876,#785085,#445077,#2f4858);
     width: 100%;
     height: 100%;
@@ -143,7 +145,7 @@
     font-size: 35px;
     font-weight: 600;
   }
-  
+
   #active:checked ~ .wrapper ul li a{
     opacity: 1;
   }
@@ -157,9 +159,9 @@
      transition-delay: .6s;
     transform: translateX(-100px);
   }
-  
-  
-  
+
+
+
   h2 {
     font-size: 70px;
     font-weight: 600;
@@ -168,4 +170,14 @@
     background-clip: text;
     -webkit-background-clip: text;
   }
-  
+
+  html{
+    background-color:#262432;
+    height: 100vh;
+    border-width: 0px;
+  }
+
+  html, body {
+    padding:8px;
+    margin:-8px;
+}
