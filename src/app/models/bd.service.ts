@@ -4,6 +4,7 @@ import { Utilisateur } from './utilisateur';
 import { Observable, of } from 'rxjs';
 import { Panier } from './panier';
 import { InvokeFunctionExpr } from '@angular/compiler';
+import { Avis } from './avis';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +20,14 @@ export class BDService {
   savingListeActuel : boolean = false;
 
   constructor() {
-    this.pushLivre(new Livre("Corentin","Surnaturel",3.5,"00000","../assets/loup.jpg","Le loup blanc",10.2,"Le loup blanc, vivant seul dans la montagne, se prépare à..."));
-    this.pushLivre(new Livre("Ismael", "Fantastique", 5.5, "0001", "../assets/renard.jpg","Le renard de combat",15.3,"Dans une école de renards ninjas, une jeune pousse cherche à se démarquer des autres animaux "));
-    this.pushLivre(new Livre("J.R.R Tolkien","Fantasy",0,"0123456789","../assets/anneaux.jpg","Seigneur des anneau",25.99,"Cabane d'un hobbit..."));
-
+    this.pushLivre(new Livre("Corentin","Surnaturel","00000","../assets/loup.jpg","Le loup blanc",10.2,"Le loup blanc, vivant seul dans la montagne, se prépare à..."));
+    this.pushLivre(new Livre("Ismael", "Fantastique", "0001", "../assets/renard.jpg","Le renard de combat",15.3,"Dans une école de renards ninjas, une jeune pousse cherche à se démarquer des autres animaux "));
+    this.pushLivre(new Livre("J.R.R Tolkien","Fantasy","0123456789","../assets/anneaux.jpg","Seigneur des anneau",25.99,"Cabane d'un hobbit..."));
+    this.mockLivre[0].addAvis(new Avis("Plop",new Date(2022,11,5),"Bof",1));
+    this.mockLivre[0].addAvis(new Avis("Plop",new Date(2022,11,6),"Le meilleur livre que j'ai jamais lu",5));
+    this.mockLivre[0].addAvis(new Avis("Plop",new Date(2022,11,7),"Nul",0));
+    this.mockLivre[1].addAvis(new Avis("Gens",new Date(2021,10,8),"Correct",3));
+    this.mockLivre[2].addAvis(new Avis("Gens",new Date(2020,8,2),"Génial",4.3));
     this.mockUser.push(new Utilisateur("Plop","Plop@Plop",0,"Plop"));
     this.mockUser.push(new Utilisateur("Gens","Gens@Bon",0,"BonAnnee"));
     this.mockUser.push(new Utilisateur("Arg","Arg@gmail.com",0,"Arg"));
@@ -182,7 +187,7 @@ export class BDService {
 
         if(get && avis!=undefined)
         {
-          if(livre.getAvis()<avis)
+          if(livre.getNote()<avis)
           {
             get=false;
           }
