@@ -1,4 +1,8 @@
+
+
 <form>
-  <input placeholder="Rechercher par titre" type="text" #titre>
-  <button type="button" (click)="getResultat(titre.value)">Rechercher</button>
+<div class="search-box">
+  <button class="btn-search"(click)="getResultat(titre.value)"><img src="../../../assets/magglass.png" alt="loupe" width="25" height="30"></button>
+  <input type="text" class="input-search" placeholder="Rechercher par titre"#titre>
+</div>
 </form>
