@@ -1,19 +1,21 @@
+import { Avis } from "./avis";
+
 export class Livre{
   private auteur: string;
   private theme: string;
-  private avis: number;
+  private avis: Avis[];
   private isbn: string;
   private titre: string;
   private imageURI: string;
   private prix: number;
   private resume:string;
+  private note:number;
 
 
 
   constructor(
     Auteur: string,
     Theme: string,
-    Avis: number,
     ISBN: string,
     ImageURI: string,
     titre:string,
@@ -22,12 +24,13 @@ export class Livre{
   ) {
     this.auteur = Auteur;
     this.theme = Theme;
-    this.avis = Avis;
+    this.avis = [];
     this.isbn = ISBN;
     this.titre=titre;
     this.imageURI = ImageURI;
     this.prix=prix;
     this.resume=resume;
+    this.note = 0;
   }
 
 
@@ -51,12 +54,28 @@ export class Livre{
     this.theme = theme;
   }
 
-  public getAvis(): number {
+  public getAvis(): Avis[] {
     return this.avis;
   }
 
-  public setAvis(avis: number): void {
-    this.avis = avis;
+  public calculNote()
+  {
+    let sum = 0;
+    for(let a of this.avis)
+    {
+      sum+=a.getNote();
+    }
+    this.note = sum / this.avis.length;
+  }
+
+  public addAvis(avis : Avis)
+  {
+    this.avis.push(avis);
+    this.calculNote();
+  }
+
+  public getNote() : number{
+    return this.note;
   }
 
   public getIsbn(): string {

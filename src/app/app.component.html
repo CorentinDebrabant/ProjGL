@@ -1,3 +1,28 @@
 <!--<app-catalogue></app-catalogue>-->
-<div><app-barre-recherche></app-barre-recherche><a routerLink="" routerLinkActive="active"><button type="button">Acceuil</button></a><a routerLink="/search" routerLinkActive="active"><button type="button">Recherche avancé</button></a><a routerLink="/connect" routerLinkActive="active"><button type="button">Se Connecter</button></a></div>
-<router-outlet></router-outlet>
+<html>
+  <body>
+    <router-outlet></router-outlet>
+    <header>
+        <input type="checkbox" id="active">
+        <label for="active" class="menu-btn"><span></span></label>
+        <label for="active" class="close"></label>
+        <div class="wrapper">
+          <ul>
+            <li><app-barre-recherche></app-barre-recherche></li>
+            <li><a routerLink="" routerLinkActive="active">Acceuil</a></li>
+            <li><a routerLink="/search" routerLinkActive="active">Recherche avancée</a></li>
+            <li><a routerLink="/catalogue" routerLinkActive="active">Catalogue</a></li>
+            <li><a routerLink="/panier" routerLinkActive="active">Panier</a></li>
+            <div *ngIf="user!=undefined;then profil; else connexion;"></div>
+            <ng-template #profil>
+              <li><a routerLink="" routerLinkActive="active">Profil</a></li>
+            </ng-template>
+            <ng-template #connexion>
+              <li><a routerLink="/connect" routerLinkActive="active">Connexion</a></li>
+            </ng-template>
+
+          </ul>
+        </div>
+      </header>
+  </body>
+</html>
