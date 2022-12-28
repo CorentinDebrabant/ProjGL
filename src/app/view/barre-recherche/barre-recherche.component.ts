@@ -15,9 +15,10 @@ export class BarreRechercheComponent implements OnInit {
   getResultat(titre: string)
   {
     this.bdServ.getLivreByName(titre).subscribe(resultat => this.listeLivre = resultat);
-    console.log(this.listeLivre);
-   this.router.navigate(['/catalogue']);
-   this.bdServ.setListeActuelle(this.listeLivre);
+    this.bdServ.setListeActuelle(this.listeLivre);
+    this.router.navigateByUrl('plop', {skipLocationChange: true}).then(()=>
+    this.router.navigate(["/catalogue"]));
+
   }
 
   constructor(private bdServ : BDService, private router : Router) { }

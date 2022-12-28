@@ -9,16 +9,16 @@
         <div class="wrapper">
           <ul>
             <li><app-barre-recherche></app-barre-recherche></li>
-            <li><a href="">Acceuil</a></li>
-            <li><a href="/search">Recherche avancée</a></li>
-            <li><a href="/catalogue">Catalogue</a></li>
-            <li><a href="/panier">Panier</a></li>
+            <li><a routerLink="" routerLinkActive="active">Acceuil</a></li>
+            <li><a routerLink="/search" routerLinkActive="active">Recherche avancée</a></li>
+            <li><a routerLink="/catalogue" routerLinkActive="active">Catalogue</a></li>
+            <li><a routerLink="/panier" routerLinkActive="active">Panier</a></li>
             <div *ngIf="user!=undefined;then profil; else connexion;"></div>
             <ng-template #profil>
-              <li><a href="">Profil</a></li>
+              <li><a routerLink="" routerLinkActive="active">Profil</a></li>
             </ng-template>
             <ng-template #connexion>
-              <li><a href="/connect">Connexion</a></li>
+              <li><a routerLink="/connect" routerLinkActive="active">Connexion</a></li>
             </ng-template>
 
           </ul>
