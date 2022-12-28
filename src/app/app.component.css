@@ -103,16 +103,7 @@
   .wrapper ul li a:after{
     position: absolute;
     content: "";
-   /* border-image:
-      linear-gradient(
-        to bottom,
-        #cd6f0d,
-        #cf4e4e,
-        #ae4876,
-        #785085,
-        #445077,
-        #2f4858
-      ) 1 100%;*/
+   
   
   
      background: linear-gradient(#cd6f0d, #cf4e4e, #ae4876,#785085,#445077,#2f4858);
