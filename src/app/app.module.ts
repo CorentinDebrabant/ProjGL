@@ -10,6 +10,7 @@ import { PageRechercheComponent } from './view/page-recherche/page-recherche.com
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
 
 import { PagePanierComponent } from './view/page-panier/page-panier.component';
+import { CommentairesComponent } from './view/commentaires/commentaires.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PagePanierComponent } from './view/page-panier/page-panier.component';
     BarreRechercheComponent,
     PageRechercheComponent,
     PageNotFoundComponent,
-    PagePanierComponent
+    PagePanierComponent,
+    CommentairesComponent
   ],
   imports: [
     BrowserModule,

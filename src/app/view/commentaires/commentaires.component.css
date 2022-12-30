@@ -1,0 +1,64 @@
+.etoile{
+  background: none;
+  border: none;
+  height: 30px;
+  width: auto;
+  margin-left: -1px;
+}
+.auteur{
+  border-right: 1px solid #ae4876;
+  width: 25%;
+  text-align: center;
+  background-color: #444c66;
+  color : #cd6f0d;
+  padding-top :10px;
+}
+.avis{
+  border : 2px solid #ae4876;
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  margin-top: -2px;
+  min-height: 100px;
+}
+.contenu{
+  width: 100%;
+  background-color: #36363e;
+  color : #cf4e4e;
+  padding :10px;
+}
+.contenu p{
+  margin-top : 0px;
+  margin-bottom: 5px;
+  color : #ae4876;
+  text-decoration: underline;
+}
+.space{
+  margin-left: 3px;
+  margin-right: 2px;
+}
+
+textarea{
+  width: 60%;
+  color : #cd6f0d;
+  background-color: #36363e;
+  border-color: #ae4876;
+}
+
+#note{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#submit{
+  margin-left: 20%;
+  font-size: larger;
+  padding: 5px;
+  width: 20%;
+  margin-bottom: 20px;
+  background-color:#444c66;
+  border-color: #ae4876;
+  color : #cd6f0d;
+}
+

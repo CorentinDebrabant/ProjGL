@@ -1,0 +1,34 @@
+<div *ngIf="user!=undefined;then newComment"></div>
+<div id="newComment">
+  <ng-template #newComment >
+    <textarea placeholder="J'ai trouvé que ce livre est ..." cols="100" rows="5" #com></textarea>
+    <br>
+    <div id="note">
+      <span class="space"></span>
+      <img class="etoile" (click)="changeNote(0.5)" src="{{images[0]}}">
+      <img class="etoile" (click)="changeNote(1)" src="{{images[1]}}">
+      <span class="space"></span>
+      <img class="etoile" (click)="changeNote(1.5)" src="{{images[2]}}">
+      <img class="etoile" (click)="changeNote(2)" src="{{images[3]}}">
+      <span class="space"></span>
+      <img class="etoile" (click)="changeNote(2.5)" src="{{images[4]}}">
+      <img class="etoile" (click)="changeNote(3)" src="{{images[5]}}">
+      <span class="space"></span>
+      <img class="etoile" (click)="changeNote(3.5)" src="{{images[6]}}">
+      <img class="etoile" (click)="changeNote(4)" src="{{images[7]}}">
+      <span class="space"></span>
+      <img class="etoile" (click)="changeNote(4.5)" src="{{images[8]}}">
+      <img class="etoile" (click)="changeNote(5)" src="{{images[9]}}">
+      <span class="space"></span>
+    </div>
+    <button id="submit" type="button" (click)="envoyerAvis(com.value)">Envoyer l'avis</button>
+  </ng-template>
+</div>
+<div *ngFor="let item of avis" class="avis">
+  <aside class="auteur">
+    <p>{{item.getAuteur()}}</p><p>{{item.getDate() | date:'dd/MM/YYYY'}}</p>
+  </aside>
+  <article class="contenu">
+    <p>Note : {{item.getNote()}}</p><span>{{item.getCommentaire()}}</span>
+  </article>
+</div>

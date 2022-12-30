@@ -1,5 +1,3 @@
-import { Utilisateur } from "./utilisateur";
-
 export class Avis {
   private auteur : string;
   private date : Date;
