@@ -11,6 +11,9 @@ import { PageNotFoundComponent } from './view/page-not-found/page-not-found.comp
 
 import { PagePanierComponent } from './view/page-panier/page-panier.component';
 import { CommentairesComponent } from './view/commentaires/commentaires.component';
+import { PageAdminComponent } from './view/page-admin/page-admin.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,13 @@ import { CommentairesComponent } from './view/commentaires/commentaires.componen
     PageRechercheComponent,
     PageNotFoundComponent,
     PagePanierComponent,
-    CommentairesComponent
+    CommentairesComponent,
+    PageAdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
