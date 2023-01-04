@@ -1,5 +1,4 @@
-<p>page-admin works!</p>
-<body>
+<div class="body">
   <h1>Ajout d'un livre</h1>
 <form [formGroup]="myform" (ngSubmit)="onSubmit()">
   <label for="auteur">Auteur</label>
@@ -16,7 +15,7 @@
   <div class="parent-div">
     <label for="imageURI">URL de l'image</label>
     <button class="btn-upload">Choisir Image</button>
-    <input type="file" id="imageURI" formControlName="imageURI">
+    <input type="file" id="imageURI" formControlName="imageURI" (change)="changeFile($event)">
   </div>
 
   <label for="prix">Prix</label>
@@ -28,4 +27,4 @@
   <br><button type="submit">Envoyer</button>
 </form>
 
-</body>
+</div>

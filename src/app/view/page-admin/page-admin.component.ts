@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl  } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+//import { HTTPService } from 'src/app/models/httpservice.service';
 import { Livre } from 'src/app/models/livre';
+import { BDService } from 'src/app/models/bd.service';
 
 
 @Component({
@@ -12,20 +13,11 @@ import { Livre } from 'src/app/models/livre';
 
 export class PageAdminComponent implements OnInit {
 
-  myform: FormGroup;
+  myform: FormGroup = new FormGroup({});
+  private filename : string = "";
+  private file : File | undefined;
 
-  constructor(private http: HttpClient) {
-    this.myform = new FormGroup({
-      auteur: new FormControl(''),
-      theme: new FormControl(''),
-      avis: new FormControl(0),
-      isbn: new FormControl(''),
-      titre: new FormControl(''),
-      imageURI: new FormControl(''),
-      prix: new FormControl(0),
-      resume: new FormControl('')
-   });
-  }
+  constructor(/*public http : HTTPService,*/ public bdService : BDService) {}
 
 
   ngOnInit(): void {
@@ -42,6 +34,17 @@ export class PageAdminComponent implements OnInit {
 
 }
 
+changeFile(event)
+{
+  this.file = event.target.files[0];
+
+  if (this.file) {
+      this.filename = this.file.name;
+      //this.http.upload(this.file);
+
+  }
+}
+
 onSubmit() {
   if (this.myform.valid) {
     const auteur = this.myform.get('auteur')!.value;
@@ -54,8 +57,8 @@ onSubmit() {
 
     const imageFile = this.myform.get('imageURI')!.value;
 
-    const livre = new Livre(auteur, theme, isbn, imageFile, titre, prix, resume);
-
+    const livre = new Livre(auteur, theme, isbn,`../assets/${this.filename}`, titre, prix, resume);
+    this.bdService.pushLivre(livre);
     console.log(livre);
   }
 

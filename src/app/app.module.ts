@@ -16,6 +16,7 @@ import { PageAdminComponent } from './view/page-admin/page-admin.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccueilleComponent } from './view/accueille/accueille.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AccueilleComponent } from './view/accueille/accueille.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

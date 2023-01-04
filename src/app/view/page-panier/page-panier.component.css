@@ -37,9 +37,22 @@ h1{
     margin: -10px;
 }
 
+.bouton{
+  background-color: #262432;
+  border: #ae4876 solid 1px;
+  color : #cd6f0d;
+  margin-top: 50px;
+  margin-left: 35px;
+}
+
+hr{
+  margin-top: 310px;
+}
+
 .livre {
     /* Other styles for the livre go here */
-
+  background-color: #262432;
+  border : none;
     /* Set the position of the livre to relative, so that we can position the front and back of the livre absolutely within the livre container. */
     position: relative;
 
@@ -49,6 +62,7 @@ h1{
 
     /* Add a margin to the livre to create some space between the cards. */
     margin-left: 50px;
+    margin-bottom: 30px;
 }
 
 .livre-img, .livre-txt {
@@ -59,6 +73,7 @@ h1{
 
     /* Set the width and height of the front and back of the livre to be the same as the livre container. */
     width: 100%;
+    max-width: 175px;
     height: 100%;
 
     /* Set the backface-visibility of the front and back of the livre to hidden, so that they are invisible when flipped. */
@@ -67,12 +82,12 @@ h1{
 
 .livre-img {
     /* Set the z-index of the front of the livre to be higher than the back of the livre, so that it appears on top. */
-    z-index: 2;
+    z-index: 0  ;
 }
 
 .livre-txt {
     /* Set the z-index of the back of the livre to be lower than the front of the livre, so that it appears behind the front. */
-    z-index: 1;
+    z-index: 0;
 
     /* Set the back of the livre to be hidden by default, so that only the front of the livre is visible. */
     transform: rotateY(180deg);
@@ -81,9 +96,10 @@ h1{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
     text-align: left;
-
+    border: solid 1px #cd6f0d;
     color: #ae4876;
 }
 

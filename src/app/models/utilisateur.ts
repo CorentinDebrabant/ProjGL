@@ -3,6 +3,7 @@ export class Utilisateur {
   private email: string;
   private panierActuel: number;
   private mdp:string;
+  private isAdmin:boolean = false;
 
   constructor(identifiant: string, email: string, panierActuel: number,mdp:string) {
     this.identifiant = identifiant;
@@ -17,6 +18,16 @@ export class Utilisateur {
 
   public setIdentifiant(identifiant: string): void {
     this.identifiant = identifiant;
+  }
+
+  public setAdmin(isAdmin: boolean)
+  {
+    this.isAdmin=isAdmin;
+  }
+
+  public getAdmin() : boolean
+  {
+    return this.isAdmin;
   }
 
   public getMdp()

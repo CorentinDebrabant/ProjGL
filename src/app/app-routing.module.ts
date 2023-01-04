@@ -8,12 +8,14 @@ import { PageRechercheComponent } from './view/page-recherche/page-recherche.com
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
 import { DetailLivreComponent } from './view/detail-livre/detail-livre.component';
 import { PagePanierComponent } from './view/page-panier/page-panier.component';
+import { PageAdminComponent } from './view/page-admin/page-admin.component';
 
 const routes: Routes = [{ path:"", component:AccueilleComponent},
 { path:"catalogue", component:CatalogueComponent},
 { path:"panier", component:PagePanierComponent},
 { path:"search", component:PageRechercheComponent},
 { path:"connect", component:ConnexionComponent},
+{ path : "admin", component : PageAdminComponent},
 { path : "detail/:id", component : DetailLivreComponent},
 { path:"**", component:PageNotFoundComponent}
 

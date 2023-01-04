@@ -27,7 +27,15 @@ export class PagePanierComponent implements OnInit {
   }
 
   recupLivre(livre: Livre): void {
-    this.selectedLivre = livre;
+    if(this.selectedLivre == livre)
+    {
+      this.selectedLivre = null;
+    }
+    else
+    {
+      this.selectedLivre = livre;
+    }
+
   }
 
   deleteLivre(livre: Livre): void {

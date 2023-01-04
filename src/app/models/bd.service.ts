@@ -3,7 +3,6 @@ import { Livre } from "./livre";
 import { Utilisateur } from './utilisateur';
 import { Observable, of } from 'rxjs';
 import { Panier } from './panier';
-import { InvokeFunctionExpr } from '@angular/compiler';
 import { Avis } from './avis';
 
 @Injectable({
@@ -119,6 +118,8 @@ export class BDService {
   public deleteFromPanier(livre : Livre)
   {
     this.panier.supprimeArticle(livre);
+    localStorage.removeItem("panier");
+    localStorage.setItem("panier",JSON.stringify(this.panier));
   }
 
   public getPanier() : Observable<Panier>

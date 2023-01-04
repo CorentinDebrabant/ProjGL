@@ -16,6 +16,10 @@
             <div *ngIf="user!=undefined;then profil; else connexion;"></div>
             <ng-template #profil>
               <li><a routerLink="" routerLinkActive="active">Profil</a></li>
+              <div *ngIf="user?.getAdmin();then admin;"></div>
+              <ng-template #admin>
+                <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
+              </ng-template>
             </ng-template>
             <ng-template #connexion>
               <li><a routerLink="/connect" routerLinkActive="active">Connexion</a></li>
