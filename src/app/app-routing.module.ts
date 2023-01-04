@@ -6,6 +6,7 @@ import { CatalogueComponent } from './view/catalogue/catalogue.component';
 import { ConnexionComponent } from './view/connexion/connexion.component';
 import { PageRechercheComponent } from './view/page-recherche/page-recherche.component';
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
+import { DetailLivreComponent } from './view/detail-livre/detail-livre.component';
 import { PagePanierComponent } from './view/page-panier/page-panier.component';
 
 const routes: Routes = [{ path:"", component:AccueilleComponent},
@@ -13,7 +14,10 @@ const routes: Routes = [{ path:"", component:AccueilleComponent},
 { path:"panier", component:PagePanierComponent},
 { path:"search", component:PageRechercheComponent},
 { path:"connect", component:ConnexionComponent},
-{ path:"**", component:PageNotFoundComponent},];
+{ path : "detail/:id", component : DetailLivreComponent},
+{ path:"**", component:PageNotFoundComponent}
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

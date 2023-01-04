@@ -10,6 +10,7 @@ import { PageRechercheComponent } from './view/page-recherche/page-recherche.com
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
 
 import { PagePanierComponent } from './view/page-panier/page-panier.component';
+import { DetailLivreComponent } from './view/detail-livre/detail-livre.component';
 import { CommentairesComponent } from './view/commentaires/commentaires.component';
 import { PageAdminComponent } from './view/page-admin/page-admin.component';
 
@@ -25,6 +26,7 @@ import { AccueilleComponent } from './view/accueille/accueille.component';
     PageRechercheComponent,
     PageNotFoundComponent,
     PagePanierComponent,
+    DetailLivreComponent,
     CommentairesComponent,
     PageAdminComponent,
     AccueilleComponent

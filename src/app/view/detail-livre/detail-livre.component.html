@@ -1,0 +1,31 @@
+<table *ngIf="livres?.length != 0">
+  <thead>
+      <tr>
+          <th colspan="10">{{livre.getTitre()}}</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>
+            <img src="{{livre.getimageURI()}}" alt="image du livre {{livre.getTitre()}}" class="img-fluid" />
+            <p> Auteur : {{livre.getAuteur()}}</p>
+            <p> Thème : {{livre.getTheme()}}</p>
+            <p> ISBN : {{livre.getIsbn()}}</p>
+            <p> Note : {{livre.getNote()}}/5</p>
+          </td>
+          <td class="description"> <p>{{livre.getResume()}}</p></td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Prix : {{livre.getPrix()}} €</h3>
+          <button *ngIf="livre" type="button" class="btn-grad" (click)="AjoutePanier(livre)">Ajouter au panier</button>
+        </td>
+        <td>
+          <p>Ce livre écrit par {{livre.getAuteur()}} vous divertira pendant des heures</p>
+        </td>
+      </tr>
+  </tbody>
+</table>
+<app-commentaires [livre]="livre" [avis]="livre.getAvis()"></app-commentaires>
+<p *ngIf="livres?.length == 0">Nous ne possèdeons pas ce livre avec cet ISBN, êtes vous sûr de ne pas avoir fait de fautes de frappes ? Nous vous redirigeons vers le catalogue.</p>
+

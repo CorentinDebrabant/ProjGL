@@ -20,6 +20,9 @@ export class BDService {
   savingListeActuel : boolean = false;
 
   constructor() {
+
+ // Create more books inspired by real books
+
     this.pushLivre(new Livre("Corentin","Surnaturel","00000","../assets/loup.jpg","Le loup blanc",10.2,"Le loup blanc, vivant seul dans la montagne, se prépare à..."));
     this.pushLivre(new Livre("Ismael", "Fantastique", "0001", "../assets/renard.jpg","Le renard de combat",15.3,"Dans une école de renards ninjas, une jeune pousse cherche à se démarquer des autres animaux "));
     this.pushLivre(new Livre("J.R.R Tolkien","Fantasy","0123456789","../assets/anneaux.jpg","Seigneur des anneaux",25.99,"Cabane d'un hobbit..."));
@@ -52,8 +55,8 @@ export class BDService {
     this.mockUser.push(new Utilisateur("Gens","Gens@Bon",0,"BonAnnee"));
     this.mockUser.push(new Utilisateur("Arg","Arg@gmail.com",0,"Arg"));
     this.panier = new Panier();
-    this.panier.ajouteArticle(this.mockLivre[0]);
-    this.panier.ajouteArticle(this.mockLivre[2]);
+    //this.panier.ajouteArticle(this.mockLivre[0]);
+    //this.panier.ajouteArticle(this.mockLivre[2]);
     this.mockCommande = new Map();
 
     let panier1 = new Panier();
@@ -71,6 +74,19 @@ export class BDService {
 
     this.mockCommande.set(this.mockUser[0], commandes1);
     this.mockCommande.set(this.mockUser[1], commandes2);
+    //localStorage.clear();
+    if(localStorage.getItem("panier")!=null)
+    {
+      this.panier = new Panier();
+      //Ajoute les livres du panier dans le panier
+      let panier = JSON.parse(localStorage.getItem("panier")!);
+      //Pour chaque livre dans le panier, on l'ajoute au panier
+      for(let i=0;i<panier.listeArticle.length;i++)
+      {
+        let livre = new Livre(panier.listeArticle[i].auteur,panier.listeArticle[i].theme,panier.listeArticle[i].isbn,panier.listeArticle[i].imageURI,panier.listeArticle[i].titre,panier.listeArticle[i].prix,panier.listeArticle[i].resume );
+        this.addToPanier(livre);
+      }
+    }
   }
 
   public setListeActuelle(liste : Livre[])
