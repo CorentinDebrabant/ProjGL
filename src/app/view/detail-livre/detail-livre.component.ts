@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Livre } from "../../models/livre";
 import { BDService } from "../../models/bd.service";
 import { ActivatedRoute } from '@angular/router'
+import { Panier } from "../../models/panier";
 
 @Component({
   selector: 'app-detail-livre',
@@ -12,11 +13,12 @@ export class DetailLivreComponent implements OnInit {
 
   livres: Livre[]|undefined;
   livre: Livre|undefined;
-  constructor(private bdServ : BDService,private router: ActivatedRoute) { }
+  constructor(private bdServ : BDService,private router: ActivatedRoute) {}
 
   ngOnInit(): void {
     const local_isbn: string| null = this.router.snapshot.paramMap.get('id');
-    console.log(local_isbn);
+    //console.log(local_isbn);
+
 
 
     if(local_isbn!=null)
@@ -24,7 +26,13 @@ export class DetailLivreComponent implements OnInit {
       this.bdServ.getLivreRecherche(undefined,undefined,undefined,local_isbn,undefined,undefined,undefined).subscribe(livres => this.livres = livres);
       this.livre = this.livres?.at(0);
     }
-    console.log(this.livres?.at(0));
+   // console.log(this.livres?.at(0));
+
+    if(this.livre==undefined)
+    {
+      this.redirection();
+    }
+
 
 
   }
@@ -33,6 +41,10 @@ export class DetailLivreComponent implements OnInit {
     this.bdServ.addToPanier(livre);
     this.bdServ.getPanier().subscribe(panier => console.log(panier));
     alert("Vous avez ajouté le livre : "+livre.getTitre()+" au panier !");
+    //Sauvegarde le panier dans le local storage, avec son contenu
+    localStorage.setItem("panier",JSON.stringify(this.bdServ.panier));
+    //vérfie que le panier est bien sauvegardé
+    console.log(localStorage.getItem("panier"));
   }
 
   getRandomMot():string
@@ -54,5 +66,11 @@ export class DetailLivreComponent implements OnInit {
     return mot;
 
 
+  }
+
+  redirection()
+  {
+    alert("Nous ne possèdons pas le livre avec l'ISBN que vous avez saisi, vous allez être redirigé vers le catalogue");
+    window.location.href = "catalogue";
   }
 }
