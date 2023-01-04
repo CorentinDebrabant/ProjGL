@@ -14,6 +14,7 @@ import { CommentairesComponent } from './view/commentaires/commentaires.componen
 import { PageAdminComponent } from './view/page-admin/page-admin.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccueilleComponent } from './view/accueille/accueille.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     PagePanierComponent,
     CommentairesComponent,
-    PageAdminComponent
+    PageAdminComponent,
+    AccueilleComponent
   ],
   imports: [
     BrowserModule,
