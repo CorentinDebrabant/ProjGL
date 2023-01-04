@@ -44,7 +44,8 @@ export class BDService {
     this.mockLivre[3].addAvis(new Avis("Arg",new Date(2021,7,2),"Pas mal",3.3));
     this.mockLivre[4].addAvis(new Avis("Gens",new Date(2021,9,2),"Cool",4.0));
     this.mockLivre[5].addAvis(new Avis("Arg",new Date(2020,2,2),"Ok",2.7));
-    this.mockLivre[6].addAvis(new Avis("Arg",new Date(2021,4,2),"Correct",2.3));
+    this.mockLivre[6].addAvis(new Avis("Arg",new Date(2021,4,2),"Correct",3));
+    this.mockLivre[6].addAvis(new Avis("Plop",new Date(2022,7,2),"Le début d'une super saga",5));
     this.mockLivre[7].addAvis(new Avis("Plop",new Date(2022,6,2),"Sympa",4.5));
     this.mockLivre[8].addAvis(new Avis("Arg",new Date(2022,8,2),"Vraiment cool",4.7));
     this.mockLivre[9].addAvis(new Avis("Plop",new Date(2022,7,6),"Sympa",4.5));
