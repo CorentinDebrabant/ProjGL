@@ -11,6 +11,11 @@ import { PageNotFoundComponent } from './view/page-not-found/page-not-found.comp
 
 import { PagePanierComponent } from './view/page-panier/page-panier.component';
 import { DetailLivreComponent } from './view/detail-livre/detail-livre.component';
+import { CommentairesComponent } from './view/commentaires/commentaires.component';
+import { PageAdminComponent } from './view/page-admin/page-admin.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccueilleComponent } from './view/accueille/accueille.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +26,15 @@ import { DetailLivreComponent } from './view/detail-livre/detail-livre.component
     PageRechercheComponent,
     PageNotFoundComponent,
     PagePanierComponent,
-    DetailLivreComponent
+    DetailLivreComponent,
+    CommentairesComponent,
+    PageAdminComponent,
+    AccueilleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

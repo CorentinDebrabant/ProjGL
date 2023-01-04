@@ -1,0 +1,31 @@
+<p>page-admin works!</p>
+<body>
+  <h1>Ajout d'un livre</h1>
+<form [formGroup]="myform" (ngSubmit)="onSubmit()">
+  <label for="auteur">Auteur</label>
+  <input type="text" id="auteur" formControlName="auteur">
+
+  <label for="theme">Thème</label>
+  <input type="text" id="theme" formControlName="theme">
+
+  <label for="isbn">ISBN</label>
+  <input type="text" id="isbn" formControlName="isbn">
+
+  <label for="titre">Titre</label>
+  <input type="text" id="titre" formControlName="titre">
+  <div class="parent-div">
+    <label for="imageURI">URL de l'image</label>
+    <button class="btn-upload">Choisir Image</button>
+    <input type="file" id="imageURI" formControlName="imageURI">
+  </div>
+
+  <label for="prix">Prix</label>
+  <input type="number" id="prix" formControlName="prix">
+
+  <label for="resume">Résumé</label>
+  <textarea id="resume" formControlName="resume"></textarea>
+
+  <br><button type="submit">Envoyer</button>
+</form>
+
+</body>

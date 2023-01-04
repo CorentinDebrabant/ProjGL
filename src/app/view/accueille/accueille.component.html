@@ -1,0 +1,44 @@
+<title>Bienvenue !</title>
+<body>
+    <div>
+  <table>
+    <thead>
+        <tr>
+            <th colspan="{{listeLivre?.length()">Recommendations</th>
+        </tr>
+    </thead>
+    <tbody>
+      <span *ngFor="let livre of listeLivre; let indexOfElement=index" >
+        <tr>
+          <td class="flip-card" (click)="debug(indexOfElement)">
+            <div class="aligne">
+              <h3>{{livre.getTitre()}}</h3>
+              <p style="text-align:center">{{livre.getNote()}}</p>
+            </div>
+            <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                    <img src='{{livre.getimageURI()}}' alt="image du livre : {{livre.getTitre()}}" style="width:100%;height:100%;">
+                    </div>
+            <div class="flip-card-back">
+                    <h4>
+                      {{livre.getAuteur()}} <br>
+                      {{livre.getTheme()}}
+                    </h4>
+                    <p>
+                    </p>
+                    <div class="marque-ver">
+                      <div class="msg">
+                         <br>
+                        {{livre.getResume()}}
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </span>
+    </tbody>
+  </table>
+  </div>
+  </body>
+  
