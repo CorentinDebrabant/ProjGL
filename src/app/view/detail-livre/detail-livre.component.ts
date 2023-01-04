@@ -11,8 +11,8 @@ import { Panier } from "../../models/panier";
 })
 export class DetailLivreComponent implements OnInit {
 
-  livres: Livre[]|undefined;
-  livre: Livre|undefined;
+  livres: Livre[] = [];
+  livre: Livre = new Livre("","","","","",0,"");
   constructor(private bdServ : BDService,private router: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -24,15 +24,18 @@ export class DetailLivreComponent implements OnInit {
     if(local_isbn!=null)
     {
       this.bdServ.getLivreRecherche(undefined,undefined,undefined,local_isbn,undefined,undefined,undefined).subscribe(livres => this.livres = livres);
-      this.livre = this.livres?.at(0);
+      if(this.livres.length>0)
+      {
+        let livreP : Livre |undefined = this.livres.at(0);
+        if(livreP != undefined)
+          this.livre = livreP;
+      }
+      else{
+        this.redirection();
+      }
+
     }
    // console.log(this.livres?.at(0));
-
-    if(this.livre==undefined)
-    {
-      this.redirection();
-    }
-
 
 
   }
