@@ -1,6 +1,6 @@
 h1 {
   text-align: center;
-  color: #ae4876;
+  color: #cd6f0d;
   width: 100%;
   font-size: 5vw;
   font-weight: bold;
@@ -20,7 +20,9 @@ body {
     color: #ae4876;
   }
   th{
-    color: #cd6f0d;
+    color: #ae4876;
+    font-weight: bold;
+    font-size: 2vw;
   }
   .carte{
     width: 100%;
