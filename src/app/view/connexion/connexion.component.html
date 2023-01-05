@@ -1,57 +1,65 @@
 <body>
 
 
-  <h2>Déjà enregistré ?</h2>
+<div class="tabs">
+  <div class="tab-2">
+    <label for="tab2-1">Déjà enregistré ?</label>
+    <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+    <div>
   <div id="form">
     <form action="/my-handling-form-page" method="post">
       <div class="formin">
-          <label for="name">Nom</label>
-          <input type="text" id="name" name="user_name">
+          <label for="user_name">Nom</label>
+          <input type="text" id="name" name="user_name"#nom>
       </div>
 
       <div class="formin">
-          <label for="mdp">mot de passe</label>
-          <input type ="password" name="user_password">
+          <label for="user_password">mot de passe</label>
+          <input type ="password" name="user_password"#password>
       </div>
 
       <div>
-      <button type="submit" form="form1" value="Submit">Submit</button>
+      <button type="button" form="form1" value="Submit" (click)="getlogin(nom.value,password.value)">Submit</button>
       </div>
     </form>
   </div>
-
-  <h2>nouveau client</h2>
+    </div>
+  </div>
+  <div class="tab-2">
+    <label for="tab2-2">nouveau client</label>
+    <input id="tab2-2" name="tabs-two" type="radio">
+    <div>
   <div id="form">
     <form action="/my-handling-form-page" method="post">
       <div class="formin">
-          <label for="name">Nom</label>
-          <input type="text" id="name" name="user_name">
+          <label for="user_name2">Nom</label>
+          <input type="text" id="name" name="user_name2"#nomin>
       </div>
 
       <div class="formin">
-          <label for="mdp">prénom</label>
-          <input type ="text" name="user_firstn">
-      </div>
-
-      <div class="formin">
-        <label for="name">mail</label>
-        <input type="email" name="user_mail">
+        <label for="user_mail2">mail</label>
+        <input type="email" name="user_mail2"#email>
     </div>
 
     <div class="formin">
-        <label for="mdp">mot de passe</label>
-        <input type ="password" name="user_password">
+        <label for="user_password">mot de passe</label>
+        <input type ="password" name="user_password"#passwordin>
     </div>
     <div class="formin">
-      <label for="name">confirmation mdp</label>
-      <input type ="password" name="user_password">
+      <label for="user_password2">confirmation mdp</label>
+      <input type ="password" name="user_password2"#passwordcheck>
   </div>
 
       <div>
-      <button type="submit" form="form1" value="Submit">Submit</button>
+      <button type="button" form="form1" value="Submit" (click)="setins(nomin.value,email.value,passwordin.value,passwordcheck.value)">Submit</button>
       </div>
     </form>
   </div>
-
+    </div>
+  </div>
+</div>
 
 </body>
+
+
+

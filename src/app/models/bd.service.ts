@@ -122,7 +122,7 @@ export class BDService {
     let ret : Utilisateur | undefined;
     for(let u of this.mockUser)
     {
-        if(mdp==u.getMdp() && id==u.getIdentifiant())
+        if(mdp.localeCompare(u.getMdp())==0 && id.localeCompare(u.getIdentifiant())==0)
         {
           ret=u;
         }
@@ -289,5 +289,7 @@ export class BDService {
     else
       return of(undefined);
   }
+
+  
 
 }

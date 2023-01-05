@@ -16,4 +16,11 @@ export class AppComponent {
   {
     this.bdServ.getConnectedUser().subscribe(connected => this.user=connected);
   }
+  userco(value )
+  {
+    console.log(value);
+    this.user=value;
+
+  }
+
 }
