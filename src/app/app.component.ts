@@ -10,17 +10,23 @@ import { Utilisateur } from "./models/utilisateur";
 export class AppComponent {
   title = 'ProjGL';
   user : Utilisateur | undefined = undefined;
+  connect : boolean = false;
 
   constructor(private bdServ : BDService) { }
   ngOnInit()
   {
     this.bdServ.getConnectedUser().subscribe(connected => this.user=connected);
   }
-  userco(value )
+  userco(value : Utilisateur|undefined)
   {
     console.log(value);
     this.user=value;
+    this.toggleConnection(false);
+  }
 
+  toggleConnection(value : boolean)
+  {
+    this.connect = value;
   }
 
 }

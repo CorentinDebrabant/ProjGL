@@ -14,7 +14,6 @@ const routes: Routes = [{ path:"", component:AccueilleComponent},
 { path:"catalogue", component:CatalogueComponent},
 { path:"panier", component:PagePanierComponent},
 { path:"search", component:PageRechercheComponent},
-{ path:"connect", component:ConnexionComponent},
 { path : "admin", component : PageAdminComponent},
 { path : "detail/:id", component : DetailLivreComponent},
 { path:"**", component:PageNotFoundComponent}

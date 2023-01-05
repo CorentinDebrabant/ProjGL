@@ -1,28 +1,34 @@
 <!--<app-catalogue></app-catalogue>-->
 <html>
   <body>
+    <span *ngIf="connect;then connection; else router;"></span>
+    <ng-template #connection>
+        <app-connexion (connect)="userco($event)"></app-connexion>
+    </ng-template>
+    <ng-template #router>
     <router-outlet></router-outlet>
+    </ng-template>
     <header>
         <input type="checkbox" id="active">
         <label for="active" class="menu-btn"><span></span></label>
         <label for="active" class="close"></label>
         <div class="wrapper">
           <ul>
-            <li><app-barre-recherche></app-barre-recherche></li>
-            <li><a routerLink="" routerLinkActive="active">Acceuil</a></li>
-            <li><a routerLink="/search" routerLinkActive="active">Recherche avancée</a></li>
-            <li><a routerLink="/catalogue" routerLinkActive="active">Catalogue</a></li>
-            <li><a routerLink="/panier" routerLinkActive="active">Panier</a></li>
+            <li><app-barre-recherche (click)="toggleConnection(false)"></app-barre-recherche></li>
+            <li><a (click)="toggleConnection(false)" routerLink="" routerLinkActive="active">Acceuil</a></li>
+            <li><a (click)="toggleConnection(false)" routerLink="/search" routerLinkActive="active">Recherche avancée</a></li>
+            <li><a (click)="toggleConnection(false)" routerLink="/catalogue" routerLinkActive="active">Catalogue</a></li>
+            <li><a (click)="toggleConnection(false)" routerLink="/panier" routerLinkActive="active">Panier</a></li>
             <div *ngIf="user!=undefined;then profil; else connexion;"></div>
             <ng-template #profil>
-              <li><a routerLink="" routerLinkActive="active">Profil</a></li>
+              <li><a (click)="toggleConnection(false)" routerLink="" routerLinkActive="active">Profil</a></li>
               <div *ngIf="user?.getAdmin();then admin;"></div>
               <ng-template #admin>
-                <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
+                <li><a (click)="toggleConnection(false)" routerLink="/admin" routerLinkActive="active">Admin</a></li>
               </ng-template>
             </ng-template>
             <ng-template #connexion>
-              <li><a routerLink="/connect" routerLinkActive="active">Connexion</a></li>
+              <li><a (click)="toggleConnection(true)">Connexion</a></li>
             </ng-template>
 
           </ul>
