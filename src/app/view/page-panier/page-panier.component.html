@@ -1,0 +1,22 @@
+<body>
+    <h1>Panier<span class="panier-nombre">({{panier.getnombreArticle()}})</span></h1>
+    <div class="panier-list">
+        <div class="livres" appSelection>
+            <button class="livre" (click)="recupLivre(livre)"
+                *ngFor="let livre of panier.listeArticle; let index = index"
+                 appSelection >
+                <div class="livre-img">
+                    <img src={{livre.getimageURI()}} style="width:auto;height:300px;max-width: 200px;" />
+                </div>
+                <div class="livre-txt">
+                    <p>{{livre.getTitre()}}</p>
+                    <p>{{livre.getResume().substring(0,150)}}</p>
+                </div>
+                <span *ngIf="livre == selectedLivre; then select"></span>
+                <ng-template #select><hr></ng-template>
+              </button>
+        </div>
+        <button class="bouton" type="button" *ngIf="selectedLivre !== null" (click)="deleteLivre(selectedLivre)">Delete</button>
+        <button class="bouton" type="button" *ngIf="panier.getnombreArticle() >= 1" (click)="commandeLivres()">Purchase</button>
+    </div>
+</body>

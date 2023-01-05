@@ -1,0 +1,80 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #36363e;
+  color: #cf4e4e;
+
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #444c66;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  input, textarea {
+    border-radius: 5px;
+    border: 1px solid #444c66;
+    padding: 10px;
+    background-color: #262432;
+    color: #cf4e4e;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    padding: 5px 0;
+
+  }
+
+  input[type="file"] {
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #444c66;
+    background-color: #262432;
+    color: #cf4e4e;
+    padding: 10px 20px;
+    cursor: pointer;
+
+  }
+
+
+  button[type="submit"] {
+    border-radius: 5px;
+    background-color: #715c77;
+    color: #cf4e4e;
+    border: none;
+    padding: 10px 20px;
+  }
+.parent-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+}
+.parent-div input[type="file"]
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  font-size: 90px;
+}
+.btn-upload{
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #444c66;
+  border-radius: 5px;
+  background-color: #262432;
+  color: #cf4e4e;
+  padding: 10px 30px;
+}
