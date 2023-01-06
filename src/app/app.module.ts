@@ -17,6 +17,7 @@ import { PageAdminComponent } from './view/page-admin/page-admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccueilleComponent } from './view/accueille/accueille.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommandeComponent } from './view/commande/commande.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     DetailLivreComponent,
     CommentairesComponent,
     PageAdminComponent,
-    AccueilleComponent
+    AccueilleComponent,
+    CommandeComponent
   ],
   imports: [
     BrowserModule,
