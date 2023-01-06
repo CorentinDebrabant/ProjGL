@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccueilleComponent } from './view/accueille/accueille.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommandeComponent } from './view/commande/commande.component';
+import { PageProfilComponent } from './view//profil/page-profil/page-profil.component';
+import { ModifierProfilComponent } from './view/profil/modifier-profil/modifier-profil.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CommandeComponent } from './view/commande/commande.component';
     CommentairesComponent,
     PageAdminComponent,
     AccueilleComponent,
-    CommandeComponent
+    CommandeComponent,
+    PageProfilComponent,
+    ModifierProfilComponent
   ],
   imports: [
     BrowserModule,

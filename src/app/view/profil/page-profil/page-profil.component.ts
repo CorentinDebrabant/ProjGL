@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class PageProfilComponent implements OnInit {
 
 
-  public user : Utilisateur = new Utilisateur("","",0,"");
+  public user : Utilisateur|undefined;
   identifiant!:string;
   mdp!:string;
   email!:string;
@@ -25,20 +25,18 @@ export class PageProfilComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.bdServ.getConnectedUser();
-    this.identifiant=this.user.getIdentifiant();
-    this.email=this.user.getEmail();
-    this.mdp=this.user.getMdp();
-  }
-
- getUser(): void
-  {
     this.bdServ.getConnectedUser().subscribe(user => this.user = user);
-  }
+    if(this.user!=undefined)
+    {
+      this.identifiant=this.user.getIdentifiant();
+      this.email=this.user.getEmail();
+      this.mdp=this.user.getMdp();
+    }
+    else
+    {
+      this.router.navigate(['']);
+    }
 
-  getUserId(): string
-  {
-    return this.user.getIdentifiant();
   }
 
   deconnexion()
