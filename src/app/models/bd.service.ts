@@ -15,6 +15,7 @@ export class BDService {
   connectedUser: Utilisateur | undefined;
   panier : Panier;
   mockCommande : Map<Utilisateur, Panier[]>;
+  mockRecommandation: Map<Utilisateur, Livre[] | undefined>;
   isCatalogueOpen : boolean = false;
   savingListeActuel : boolean = false;
 
@@ -26,7 +27,7 @@ export class BDService {
     this.pushLivre(new Livre("Ismael", "Fantastique", "0001", "../assets/renard.jpg","Le renard de combat",15.3,"Dans une école de renards ninjas, une jeune pousse cherche à se démarquer des autres animaux "));
     this.pushLivre(new Livre("J.R.R Tolkien","Fantasy","0123456789","../assets/anneaux.jpg","Seigneur des anneaux",25.99,"Cabane d'un hobbit..."));
     this.pushLivre(new Livre("J.R.R Tolkien","Fantasy","1234567891","../assets/anneaux2.jpg","Seigneur des anneaux 2",25.99,"Plus aucune cabane de hobbit..."));
-    this.pushLivre(new Livre("J.R.R Tolkien","Fantasy","1234567891","../assets/anneaux3.jpg","Seigneur des anneaux 3",25.99,"Beaucoup trop loin des cabanes de hobbit..."));
+    this.pushLivre(new Livre("J.R.R Tolkien","Fantasy","1234567892","../assets/anneaux3.jpg","Seigneur des anneaux 3",25.99,"Beaucoup trop loin des cabanes de hobbit..."));
     this.pushLivre(new Livre("Charly","Comedie","7410","../assets/star.jpg","Stary",399.99,"Petite étoile à gros chiffres."));
     this.pushLivre(new Livre("J.K Rowling","Fantasy","6511111","../assets/harry-potter1.jpg","Harry Potter",16.99,"Un jeune garçon décide d'intégrer une école spéciale..."));
     this.pushLivre(new Livre("J.K Rowling","Fantasy","6522222","../assets/harry-potter2.jpg","Harry Potter II",16.99,"Un jeune garçon décide de rester dans l'école spéciale..."));
@@ -47,9 +48,9 @@ export class BDService {
     this.mockLivre[6].addAvis(new Avis("Plop",new Date(2022,7,2),"Le début d'une super saga",5));
     this.mockLivre[7].addAvis(new Avis("Plop",new Date(2022,6,2),"Sympa",4.5));
     this.mockLivre[8].addAvis(new Avis("Arg",new Date(2022,8,2),"Vraiment cool",4.7));
-    this.mockLivre[9].addAvis(new Avis("Plop",new Date(2022,7,6),"Sympa",4.5));
-    this.mockLivre[10].addAvis(new Avis("Plop",new Date(2022,7,7),"Sympa",4.5));
-    this.mockLivre[11].addAvis(new Avis("Plop",new Date(2022,7,10),"Sympa",4.5));
+    this.mockLivre[9].addAvis(new Avis("Plop",new Date(2022,7,6),"Sympa",3.5));
+    this.mockLivre[10].addAvis(new Avis("Plop",new Date(2022,7,7),"Sympa",3.4));
+    this.mockLivre[11].addAvis(new Avis("Plop",new Date(2022,7,10),"Sympa",4.2));
     this.mockLivre[12].addAvis(new Avis("Plop",new Date(2022,8,2),"Super conclusion",5));
     this.mockUser.push(new Utilisateur("Plop","Plop@Plop",0,"Plop"));
     this.mockUser.push(new Utilisateur("Gens","Gens@Bon",0,"BonAnnee"));
@@ -58,11 +59,12 @@ export class BDService {
     //this.panier.ajouteArticle(this.mockLivre[0]);
     //this.panier.ajouteArticle(this.mockLivre[2]);
     this.mockCommande = new Map();
+    this.mockRecommandation = new Map();
 
     let panier1 = new Panier();
+    panier1.ajouteArticle(this.mockLivre[2]);
     panier1.ajouteArticle(this.mockLivre[3]);
-    panier1.ajouteArticle(this.mockLivre[4]);
-    panier1.ajouteArticle(this.mockLivre[7]);
+    //panier1.ajouteArticle(this.mockLivre[5]);
     let commandes1: Panier[] = [];
     commandes1.push(panier1);
     
@@ -74,6 +76,7 @@ export class BDService {
 
     this.mockCommande.set(this.mockUser[0], commandes1);
     this.mockCommande.set(this.mockUser[1], commandes2);
+
     //localStorage.clear();
     if(localStorage.getItem("panier")!=null)
     {
@@ -171,6 +174,33 @@ export class BDService {
     return of(this.mockLivre);
   }
 
+  public getRecommandations() : Observable<Livre[] | undefined>
+  {
+    if (this.connectedUser != undefined)
+    {
+      let listRecommendations:Livre[] | undefined = this.mockRecommandation.get(this.connectedUser);
+      if (listRecommendations != undefined)
+      {
+        return of(listRecommendations);
+      }
+    }
+    return of(undefined);
+  }
+  public setRecommendations(recommandations: Livre[])
+  {
+    if (this.connectedUser!=undefined)
+    {
+      this.mockRecommandation.set(this.connectedUser, recommandations);
+    }
+  }
+  public resetRecommendations()
+  {
+    if (this.connectedUser!=undefined)
+    {
+      this.mockRecommandation.set(this.connectedUser, undefined);
+    }
+  }
+
   public commande()
   {
     if(this.panier.nombreArticle != 0 && this.connectedUser!=undefined)
@@ -180,9 +210,11 @@ export class BDService {
       {
         listCommandes.push(this.panier);
         this.mockCommande.set(this.connectedUser,listCommandes);
+        this.resetRecommendations();
       }
       else{
         this.mockCommande.set(this.connectedUser,[this.panier]);
+        this.resetRecommendations();
       }
       this.panier=new Panier();
     }
