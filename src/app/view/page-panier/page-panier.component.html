@@ -17,6 +17,6 @@
               </button>
         </div>
         <button class="bouton" type="button" *ngIf="selectedLivre !== null" (click)="deleteLivre(selectedLivre)">Delete</button>
-        <button class="bouton" type="button" *ngIf="panier.getnombreArticle() >= 1" (click)="commandeLivres()">Purchase</button>
+        <button class="bouton" type="button" *ngIf="panier.getnombreArticle() >= 1" (click)="commandeLivres()" routerLink="/search" routerLinkActive="active">Purchase</button>
     </div>
 </body>
