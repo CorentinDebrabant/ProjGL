@@ -3,17 +3,17 @@
   <div id="1">
     <div>
       <label for="ancienmdp">Ancien Mot de passe:</label>
-      <input type="text" id="username" name="username">
+      <input type="text" id="username" name="username" #ancien>
     </div>
     <div>
       <label for="nouveaumdp">Mot de passe :</label>
-      <input type="password" id="pass" name="password" required>
+      <input type="password" id="pass" name="password" required #psw1>
     </div>
     <div>
       <label for="verifmdp">Confirmation Mot de passe :</label>
-      <input type="password" id="pass" name="password" required>
+      <input type="password" id="pass" name="password" required #psw2>
     </div>
-    <input id="valider" type="button" onClick="validerNewMDP(this)" value="Valider">
-    <input id="annuler" type="button" onClick="anullerMDP(this)" value="Annuler">
+    <input id="valider" type="button" (click)="validerNewMDP(ancien.value,psw1.value,psw2.value)" value="Valider">
+    <input id="annuler" type="button" (click)="annulerMDP()" value="Annuler">
   </div>
 </div>

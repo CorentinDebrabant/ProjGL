@@ -67,7 +67,7 @@ export class BDService {
     //panier1.ajouteArticle(this.mockLivre[5]);
     let commandes1: Panier[] = [];
     commandes1.push(panier1);
-    
+
     let panier2 = new Panier();
     panier2.ajouteArticle(this.mockLivre[0]);
     panier2.ajouteArticle(this.mockLivre[5]);
@@ -322,6 +322,14 @@ export class BDService {
       return of(undefined);
   }
 
-  
+  public modifierMDP(ancien : string, nouveau : string) : boolean
+  {
+    if(this.connectedUser?.getMdp().localeCompare(ancien)==0)
+    {
+      this.connectedUser.setMdp(nouveau);
+      return true;
+    }
+    return false;
+  }
 
 }
