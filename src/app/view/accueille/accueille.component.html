@@ -4,11 +4,11 @@
   <table>
     <thead>
         <tr>
-            <th colspan="{{listeLivre?.length()">Recommendations</th>
+            <th colspan="{{listeRecommendations?.length()">Recommendations</th>
         </tr>
     </thead>
     <tbody>
-      <span *ngFor="let livre of listeLivre; let indexOfElement=index" >
+      <span *ngFor="let livre of listeRecommendations; let indexOfElement=index" >
         <tr>
           <td class="flip-card" (click)="debug(indexOfElement)">
             <div class="aligne">
