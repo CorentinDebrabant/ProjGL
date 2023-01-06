@@ -1,2 +1,2 @@
 # ProjGL
-Projet Angular M1
+Projet Angular Master1-Informatique.
