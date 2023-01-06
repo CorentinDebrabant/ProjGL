@@ -1,0 +1,103 @@
+#body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+fieldset{
+  border: 1px solid #ae4876;
+  background-color: #36363e;
+  padding-top: 20px;
+  margin:10px;
+  width: 100%;
+  min-width: 800px;
+}
+legend{
+  position: relative;
+  background-color: #36363e;
+  border-top: 1px solid #ae4876;
+  border-left: 1px solid #ae4876;
+  border-right: 1px solid #ae4876;
+  color:#cd6f0d;
+}
+#fadresse div{
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+label{
+  color:#cd6f0d;
+  width: 20%;
+  text-align: center;
+}
+#adresse{
+  width: 50%;
+}
+#postal{
+  width: 10%;
+}
+#ville{
+  width: 25%;
+}
+p,h1,h2,h3,a{
+  color:#cd6f0d;
+  text-align: center;
+}
+.moyen{
+  background-color: #715c77;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding:5px;
+  padding-bottom: 10px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.formMoyen{
+  display: flex;
+  flex-direction: column;
+}
+.formMoyen span{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+.formMoyen span label{
+  color : #Dd7f1d
+}
+#csecu{
+  width: 4%;
+  min-width: 25px;
+}
+#cdate{
+  width: 6%;
+  min-width: 45px;
+}
+#carte{
+  width: 20%;
+  min-width: 135px;
+}
+#validation{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+#validation span{
+  margin-top: 200px;
+}
+h2,h3{
+  margin-bottom: 25px;
+}
+p{
+  font-size: larger;
+}
+#retour{
+  width: 100%;
+}
+button{
+  background-color: #262432;
+  border: #ae4876 solid 1px;
+  color : #cd6f0d;
+  margin-left: 20px;
+}

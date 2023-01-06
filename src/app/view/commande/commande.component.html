@@ -1,67 +1,76 @@
-<span *ngIf="valide;then commande;else paiement"></span>
-<ng-template #paiement>
-  <p>Votre panier a une valeur de {{panier.getTotal()}}€</p>
-  <form [formGroup]="myform">
-    <fieldset>
-      <legend>Adresse de livraison</legend>
-      <div>
-        <label for="adresse">Adresse (Numéro + Rue)</label>
-        <input type="text" id="adresse" name="adresse" formControlName="adresse">
-      </div>
-      <div>
-        <label for="postal">Code Postal</label>
-        <input type="text" id="adresse" name="adresse" formControlName="postal">
-      </div>
-      <div>
-        <label for="ville">Ville</label>
-        <input type="text" id="adresse" name="adresse" formControlName="ville">
-      </div>
-    </fieldset>
-    <fieldset>
-      <legend>Moyen de paiement</legend>
-      <div class="moyen">
-        <span>
-          <input (click)="changerPaiement(1)" type="radio" name="paiement" value="carte">
-          <label>Carte Bancaire</label>
-        </span>
-        <span *ngIf="typePaiement==1" class="formMoyen">
+<span id="body">
+  <span *ngIf="valide;then commande;else paiement"></span>
+  <ng-template #paiement>
+    <h1>Préparation de la commande</h1>
+    <p>Votre panier a une valeur de {{panier.getTotal()}}€</p>
+    <form [formGroup]="myform">
+      <fieldset id="fadresse">
+        <legend>Adresse de livraison</legend>
+        <div>
+          <label for="adresse">Adresse (Numéro + Rue)</label>
+          <input type="text" id="adresse" name="adresse" formControlName="adresse">
+        </div>
+        <div>
+          <label for="postal">Code Postal</label>
+          <input type="text" id="postal" name="postal" formControlName="postal">
+        </div>
+        <div>
+          <label for="ville">Ville</label>
+          <input type="text" id="ville" name="ville" formControlName="ville">
+        </div>
+      </fieldset>
+      <fieldset id="fpaie">
+        <legend>Moyen de paiement</legend>
+        <div class="moyen">
           <span>
-            <label for="carte">Code Carte</label>
-            <input type="text" id="carte" name="carte" formControlName="carte" placeholder="0000-0000-0000-0000">
+            <input (click)="changerPaiement(1)" type="radio" name="paiement" value="carte">
+            <label>Carte Bancaire</label>
           </span>
+          <span *ngIf="typePaiement==1" class="formMoyen">
+            <span>
+              <label for="carte">Code Carte</label>
+              <input type="text" id="carte" name="carte" formControlName="carte" placeholder="0000-0000-0000-0000">
+            </span>
+            <span>
+              <label for="csecu">Code Sécurité</label>
+              <input type="text" id="csecu" name="csecu" formControlName="secu" placeholder="000">
+            </span>
+            <span>
+              <label for="cdate">Date expiration</label>
+              <input type="text" id="cdate" name="cdate" formControlName="date" placeholder="dd/MM">
+            </span>
+          </span>
+        </div>
+        <div class="moyen">
           <span>
-            <label for="csecu">Code Sécurité</label>
-            <input type="text" id="csecu" name="csecu" formControlName="secu" placeholder="000">
+            <input (click)="changerPaiement(2)" type="radio" name="paiement" value="paypal">
+            <label>PayPal</label>
           </span>
-          <span>
-            <label for="cdate">Date expiration</label>
-            <input type="text" id="cdate" name="cdate" formControlName="date" placeholder="dd/MM">
+          <span *ngIf="typePaiement==2" class="formMoyen">
+            <span *ngIf="!paypalValide">
+              <label for="paypal">Connectez vous à paypal</label>
+              <input type="button" id="paypal" name="paypal" value="Connectez vous" (click)="connecterPayPal()">
+            </span>
+            <span *ngIf="paypalValide">
+              Vous êtes bien connecté à Paypal
+            </span>
           </span>
-        </span>
-      </div>
-      <div class="moyen">
-        <span>
-          <input (click)="changerPaiement(2)" type="radio" name="paiement" value="paypal">
-          <label>PayPal</label>
-        </span>
-        <span *ngIf="typePaiement==2" class="formMoyen">
-          <span *ngIf="!paypalValide">
-            <label for="paypal">Connectez vous à paypal</label>
-            <input type="button" id="paypal" name="paypal" value="Connectez vous" (click)="connecterPayPal()">
-          </span>
-          <span *ngIf="paypalValide">
-            Vous êtes bien connecté à Paypal
-          </span>
-        </span>
-      </div>
-    </fieldset>
-    <button type="button" disabled *ngIf="typePaiement==-1">Valider Commande</button>
-    <button type="button" *ngIf="typePaiement==1" (click)="validerCommande()">Valider Commande</button>
-    <button type="button" *ngIf="typePaiement==2 && paypalValide" (click)="validerCommande()">Valider Commande</button>
-    <button type="button" *ngIf="typePaiement==2 && !paypalValide" disabled>Valider Commande</button>
-  </form>
-</ng-template>
-<ng-template #commande>
-  <h2>Votre commande d'un montant de {{panier.getTotal()}}€ a bien été effectuée.</h2>
-  <h3>Elle sera livrée à l'adresse <span id="adresse">{{adresse}}</span> sous <span id="jours">{{nbJour}}</span> jours</h3>
-</ng-template>
+        </div>
+      </fieldset>
+      <button type="button" disabled *ngIf="typePaiement==-1">Valider Commande</button>
+      <button type="button" *ngIf="typePaiement==1" (click)="validerCommande()">Valider Commande</button>
+      <button type="button" *ngIf="typePaiement==2 && paypalValide" (click)="validerCommande()">Valider Commande</button>
+      <button type="button" *ngIf="typePaiement==2 && !paypalValide" disabled>Valider Commande</button>
+    </form>
+  </ng-template>
+  <ng-template #commande>
+    <div id="validation">
+      <span>
+        <h2>Votre commande d'un montant de {{panier.getTotal()}}€ a bien été effectuée.</h2>
+        <h3>Elle sera livrée à l'adresse <span id="adresse">{{adresse}}</span> sous <span id="jours">{{nbJour}}</span> jours</h3>
+        <a id="retour" routerLink="" routerLinkActive="active">Retour à l'accueil</a>
+      </span>
+    </div>
+
+  </ng-template>
+</span>

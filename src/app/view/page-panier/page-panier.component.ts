@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Livre } from '../../models/livre';
 import { Panier } from '../../models/panier';
 import { BDService } from "../../models/bd.service";
+import { Utilisateur } from '../../models/utilisateur';
 
 @Component({
   selector: 'app-page-panier',
@@ -11,7 +12,7 @@ import { BDService } from "../../models/bd.service";
 export class PagePanierComponent implements OnInit {
 
   public panier: Panier = new Panier();
-
+  user : Utilisateur | undefined;
   selectedLivre: Livre | null = null;
 
   getPanier()
@@ -24,6 +25,7 @@ export class PagePanierComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPanier();
+    this.bdServ.getConnectedUser().subscribe(cu => this.user =cu);
   }
 
   recupLivre(livre: Livre): void {

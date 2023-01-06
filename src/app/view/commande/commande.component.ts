@@ -89,6 +89,7 @@ export class CommandeComponent implements OnInit {
     {
       this.valide=true;
       this.nbJour = Math.floor(10+Math.random())+3;
+      this.bdServ.commande();
     }
   }
 
