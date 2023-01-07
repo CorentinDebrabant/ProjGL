@@ -134,6 +134,11 @@ export class BDService {
     }
   }
 
+  public deco()
+  {
+    this.connectedUser = undefined;
+  }
+
   public videListeActuelle()
   {
     if(!this.savingListeActuel)

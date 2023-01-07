@@ -33,7 +33,8 @@ export class AppComponent {
   deco()
   {
     sessionStorage.clear();
-    window.location.href = "";
+    this.user = undefined;
+    this.bdServ.deco();
   }
 
 }
