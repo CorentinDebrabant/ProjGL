@@ -11,7 +11,7 @@
             <p> Auteur : {{livre.getAuteur()}}</p>
             <p> Thème : {{livre.getTheme()}}</p>
             <p> ISBN : {{livre.getIsbn()}}</p>
-            <p> Note : {{livre.getNote()}}/5</p>
+            <p> Note : {{livre.getNote() | number : '1.2-2' }}/5</p>
           </td>
           <td class="description"> <p>{{livre.getResume()}}</p></td>
       </tr>

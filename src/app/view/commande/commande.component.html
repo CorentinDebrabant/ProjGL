@@ -2,7 +2,7 @@
   <span *ngIf="valide;then commande;else paiement"></span>
   <ng-template #paiement>
     <h1>Préparation de la commande</h1>
-    <p>Votre panier a une valeur de {{panier.getTotal()}}€</p>
+    <p>Votre panier a une valeur de {{panier.getTotal() | number : '1.2-2' }}€</p>
     <form [formGroup]="myform">
       <fieldset id="fadresse">
         <legend>Adresse de livraison</legend>
