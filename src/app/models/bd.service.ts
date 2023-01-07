@@ -53,6 +53,7 @@ export class BDService {
     this.mockLivre[11].addAvis(new Avis("Plop",new Date(2022,7,10),"Sympa",4.2));
     this.mockLivre[12].addAvis(new Avis("Plop",new Date(2022,8,2),"Super conclusion",5));
     this.mockUser.push(new Utilisateur("Plop","Plop@Plop",0,"Plop"));
+    this.mockUser[0].setAdmin(true);
     this.mockUser.push(new Utilisateur("Gens","Gens@Bon",0,"BonAnnee"));
     this.mockUser.push(new Utilisateur("Arg","Arg@gmail.com",0,"Arg"));
     this.panier = new Panier();
@@ -89,6 +90,38 @@ export class BDService {
         let livre = new Livre(panier.listeArticle[i].auteur,panier.listeArticle[i].theme,panier.listeArticle[i].isbn,panier.listeArticle[i].imageURI,panier.listeArticle[i].titre,panier.listeArticle[i].prix,panier.listeArticle[i].resume );
         this.addToPanier(livre);
       }
+    }
+    console.log("Voici ce qu'il y a dans le sessionStorage :")
+    console.log(sessionStorage.getItem("user"));
+    if(sessionStorage.getItem("user")!=null)
+    {
+     let  email = JSON.parse(sessionStorage.getItem("user")!).email;
+      console.log("Voici l'email :")
+      console.log(email);
+
+      let identifiant = JSON.parse(sessionStorage.getItem("user")!).identifiant;
+      console.log("Voici l'identifiant :")
+      console.log(identifiant);
+      let panierActuel = JSON.parse(sessionStorage.getItem("user")!).panierActuel;
+      console.log("Voici le panier actuel :")
+      console.log(panierActuel);
+
+      let mdp = JSON.parse(sessionStorage.getItem("user")!).mdp;
+      console.log("Voici le mdp :")
+      console.log(mdp);
+
+      let isAdmin = JSON.parse(sessionStorage.getItem("user")!).isAdmin;
+      console.log("Voici le isAdmin :")
+      console.log(isAdmin);
+
+      this.connectedUser = new Utilisateur(identifiant,email,panierActuel,mdp);
+      if(isAdmin)
+      {
+        this.connectedUser.setAdmin(true);
+      }
+      //this.connectedUser = JSON.parse(sessionStorage.getItem("user")!);
+      console.log("Voici le user :")
+      console.log(this.connectedUser);
     }
   }
 

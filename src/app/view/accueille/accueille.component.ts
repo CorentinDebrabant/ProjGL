@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Livre } from "../../models/livre";
 import { Panier } from "../../models/panier";
 import { BDService } from "../../models/bd.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accueille',
@@ -12,7 +13,7 @@ export class AccueilleComponent implements OnInit {
 
   public listeLivre : Livre[] = [];
   public listeRecommendations : Livre[] | undefined = undefined;
-  public 
+  public
 
   alreadyBought(livre: Livre): boolean
   {
@@ -123,11 +124,16 @@ export class AccueilleComponent implements OnInit {
       console.log("Recommendations already made!");
   }
 
-  constructor(private bdServ : BDService) { }
+  constructor(private bdServ : BDService,private router: Router) { }
 
   debug(index:number){
     if (this.listeRecommendations != undefined)
       console.log(this.listeRecommendations[index]);
+      if(this.listeRecommendations!=undefined)
+      {
+        this.router.navigate(['/detail',this.listeRecommendations[index]?.getIsbn()]);
+      }
+
   }
 
   ngOnInit(): void {

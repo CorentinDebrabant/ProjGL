@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BDService } from "./models/bd.service";
 import { Utilisateur } from "./models/utilisateur";
 
@@ -27,6 +28,12 @@ export class AppComponent {
   toggleConnection(value : boolean)
   {
     this.connect = value;
+  }
+
+  deco()
+  {
+    sessionStorage.clear();
+    window.location.href = "";
   }
 
 }

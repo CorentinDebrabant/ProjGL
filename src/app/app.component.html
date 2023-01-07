@@ -22,13 +22,14 @@
             <div *ngIf="user!=undefined;then profil; else connexion;"></div>
             <ng-template #profil>
               <li><a (click)="toggleConnection(false)" routerLink="/profil" routerLinkActive="active">Profil</a></li>
+              <li><a (click)="deco()">Deconnexion</a></li>
               <div *ngIf="user?.getAdmin();then admin;"></div>
               <ng-template #admin>
                 <li><a (click)="toggleConnection(false)" routerLink="/admin" routerLinkActive="active">Admin</a></li>
               </ng-template>
             </ng-template>
             <ng-template #connexion>
-              <li><a (click)="toggleConnection(true)">Connexion</a></li>
+              <li><a (click)="toggleConnection(true)" routerLink="/connexion"> Connexion</a></li>
             </ng-template>
 
           </ul>

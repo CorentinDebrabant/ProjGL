@@ -11,6 +11,7 @@ import { PageAdminComponent } from './view/page-admin/page-admin.component';
 import { CommandeComponent } from './view/commande/commande.component';
 import { PageProfilComponent } from './view/profil/page-profil/page-profil.component';
 import { ModifierProfilComponent } from './view/profil/modifier-profil/modifier-profil.component';
+import { ConnexionComponent } from './view/connexion/connexion.component';
 
 const routes: Routes = [{ path:"", component:AccueilleComponent},
 { path:"catalogue", component:CatalogueComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [{ path:"", component:AccueilleComponent},
 { path : "detail/:id", component : DetailLivreComponent},
 { path:"profil", component:PageProfilComponent},
 { path:"modifier-profil", component:ModifierProfilComponent},
-{ path:"**", component:PageNotFoundComponent}
+{ path:"**", component:PageNotFoundComponent},
+{ path:"connexion", component:ConnexionComponent}
 
 ];
 
