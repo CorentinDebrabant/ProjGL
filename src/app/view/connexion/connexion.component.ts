@@ -24,9 +24,16 @@ export class ConnexionComponent implements OnInit {
     {
       let v1 : Utilisateur |undefined ;
       this.bdServ.connect(password,nom).subscribe(user=>v1=user);
-      //console.log(this.bdServ.connectedUser);
+
+      sessionStorage.setItem("user",JSON.stringify(v1));
+
+
+      console.log("Voici ce  qu'il y aaa"+sessionStorage.getItem("user"));
       this.connect.emit(v1);
       this.router.navigate([""]);
+
+
+
     }
   }
 
@@ -42,6 +49,10 @@ export class ConnexionComponent implements OnInit {
     {
       let us : Utilisateur = new Utilisateur("","",0,"");
       this.bdServ.inscrire(nomin,email,passwordin).subscribe(user => us = user);
+      sessionStorage.setItem("user",JSON.stringify(us));
+
+
+      console.log("Voici ce  qu'il y aaa"+sessionStorage.getItem("user"));
       this.connect.emit(us);
       this.router.navigate([""]);
     }
