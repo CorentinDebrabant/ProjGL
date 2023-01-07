@@ -18,6 +18,6 @@
         </div>
         <button class="bouton" type="button" *ngIf="selectedLivre !== null" (click)="deleteLivre(selectedLivre)">Delete</button>
         <button class="bouton" type="button" *ngIf="panier.getnombreArticle() >= 1 && user!=undefined" (click)="commandeLivres()" routerLink="/commande" routerLinkActive="active">Purchase</button>
-        <button class="bouton" type="button" *ngIf="panier.getnombreArticle() >= 1 && user==undefined" (click)="commandeLivres()" routerLink="/commande" routerLinkActive="active" disabled>Can't Purchase (Not connected)</button>
+        <button class="bouton" type="button" *ngIf="panier.getnombreArticle() >= 1 && user==undefined" routerLink="/commande" routerLinkActive="active" disabled>Can't Purchase (Not connected)</button>
       </div>
 </body>

@@ -3,6 +3,7 @@ import { Livre } from '../../models/livre';
 import { Panier } from '../../models/panier';
 import { BDService } from "../../models/bd.service";
 import { Utilisateur } from '../../models/utilisateur';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-panier',
@@ -20,7 +21,7 @@ export class PagePanierComponent implements OnInit {
     this.bdServ.getPanier().subscribe(panier => this.panier = panier);
   }
 
-  constructor(private bdServ : BDService) {
+  constructor(private bdServ : BDService,private router : Router) {
   }
 
   ngOnInit(): void {
@@ -46,6 +47,6 @@ export class PagePanierComponent implements OnInit {
   }
 
   commandeLivres(): void {
-    this.bdServ.commande();
+    this.router.navigate(['/commande']);
   }
 }

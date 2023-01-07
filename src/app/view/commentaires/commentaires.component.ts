@@ -52,7 +52,6 @@ export class CommentairesComponent implements OnInit {
     if(this.user!=undefined)
     {
       let newAvis = new Avis(this.user.getIdentifiant(),new Date(),commentaire,this.valNote);
-      this.avis.push(newAvis);
       this.livre.addAvis(newAvis);
     }
   }

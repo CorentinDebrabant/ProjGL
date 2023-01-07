@@ -217,6 +217,7 @@ export class BDService {
         this.resetRecommendations();
       }
       this.panier=new Panier();
+      localStorage.removeItem("panier");
     }
   }
 
