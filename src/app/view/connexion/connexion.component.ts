@@ -40,7 +40,10 @@ export class ConnexionComponent implements OnInit {
     }
     else
     {
-      this.bdServ.inscrire(nomin,email,passwordin);
+      let us : Utilisateur = new Utilisateur("","",0,"");
+      this.bdServ.inscrire(nomin,email,passwordin).subscribe(user => us = user);
+      this.connect.emit(us);
+      this.router.navigate([""]);
     }
 
     }
