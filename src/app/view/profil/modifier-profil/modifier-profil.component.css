@@ -1,0 +1,21 @@
+input{
+  color:#cd6f0d;
+  background-color: #444c66;
+  border-color: #ae4876;
+  margin-bottom: 25px;
+}
+label,h1{
+  color:#cd6f0d;
+  text-align: center;
+  margin-bottom: 25px;
+}
+#form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input[type="button"]
+{
+  margin-right: 15px;
+}
